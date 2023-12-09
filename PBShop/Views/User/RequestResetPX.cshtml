@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "RequestResetPX";
+    Layout = "~/Views/Shared/PBShopHome_Layout.cshtml";
+}
+
+<!--Navigation section-->
+<div class="container">
+    <nav class="biolife-nav">
+       
+    </nav>
+</div>
+
+<div class="page-contain login-page">
+    <!-- Main content -->
+    <div id="main-content" class="main-content">
+        <div class="container">
+            <div class="row">
+                <!--Form Sign In-->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                     style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              ">
+                    <div class="signin-container"
+                         style="
+                  width: 480px;
+                  border-radius: 10px;
+                  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+                    0 10px 10px rgba(0, 0, 0, 0.22);
+                  z-index: 1;
+                  overflow: hidden;
+                  margin: 80px;
+                  padding: 50px 30px;
+                ">
+                        <p class="title" style="margin-bottom: 40px">
+                            Đặt Lại Mật Khẩu
+                        </p>
+                        @using (Html.BeginForm( new { name = "frm-login" }))
+                        {
+                            <p class="form-row">
+                                <label for="fid-name">Email:<span class="requite">*</span></label>
+                                <input type="text"
+                                       id="fid-name"
+                                       name="Email"
+                                       value=""
+                                       class="txt-input" />
+                            </p>
+                            if (@ViewBag.ThongBao == "1")
+
+                            {
+                                <p style="color: #379237;"><img src="~/Theme/assets/images/icon/check.png" style="height: 18px; margin-right: 5px;" alt="">một liên kết đổi lại mật khẩu đã được gửi vào mail của bạn</p>
+                            }
+                            if(@ViewBag.ThongBao == " ")
+                {
+                    <p style="color: #ea2d3f;"><img src="~/Theme/assets/images/icon/erorr.png" style="height: 18px; margin-right: 5px;" alt="">không tìm thấy tài khoản</p>
+                }
+
+                            <p class="form-row wrap-btn" style="text-align: center">
+                                <a href="@Url.Action("Login","User")" class="btn btn-submit btn-bold cancelbtnP"
+                                   type="submit"
+                                   style="
+
+                        border: #379237 1px solid;
+                        color: #379237;
+                      ">
+                                    Hủy
+                                </a>
+
+                                <button class="btn btn-submit btn-bold"
+                                        type="submit"
+                                        style="margin-left: 150px">
+                                    Tiếp Theo
+                                </button>
+                            </p>
+                            <p style="
+                      text-align: center;
+                      margin-top: 20px;
+                      color: #ffffff;
+                      text-transform: uppercase;
+                      border: none;
+                      border-radius: 9999px;
+                      text-align: center;
+                      font-weight: 700;
+                    ">
+                            
+                            </p>
+                        }
+
+                    </div>
+                </div>
+
+              
+            </div>
+        </div>
+    </div>
+</div>
+

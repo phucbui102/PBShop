@@ -1,0 +1,80 @@
+﻿@model PBShop.Models.Product
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Xác Nhận Xóa Sản Phẩm</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div style="display: flex">
+                <img src="~/Theme/assets/images/products/@Model.Img"
+                     alt="dd"
+                     @*width="270"*@
+                     height="110"
+                     class="product-thumnail" />
+
+                <div style="margin-left:10px">
+                    <p>
+                        @Model.Name
+                    </p>
+                    <p>
+                        ₫ @Model.Price
+                    </p>
+                </div>
+
+                @*<hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Img)
+                </dt>
+
+                <dd>
+                    <img src="~/Theme/assets/images/products/@Model.Img" />
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Describe)
+                </dt>
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateAdded)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DateAdded)
+                </dd>
+
+
+            </dl>*@
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-secondary btn-danger " onclick="DeleteProduct(@Model.ID)"   data-bs-dismiss="modal">Xóa</button>
+        </div>
+    </div>
+</div>
+
+
+@*<p>
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Quay trở lại danh sách", "Index")
+    </p>*@

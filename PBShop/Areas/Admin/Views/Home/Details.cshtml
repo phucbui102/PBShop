@@ -1,0 +1,64 @@
+﻿@model PBShop.Models.Product
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutManage.cshtml";
+}
+
+
+
+<style>
+
+</style>
+
+<h2>Thông tin chi tiết sản phẩm</h2>
+
+<div>
+
+    <hr />
+    <a href="@Url.Action("Index" , "Home")" class="btn btn-dark" style="margin-bottom:20px"><i class="fa-solid fa-arrow-left" style="color: #ffffff; padding-right: 5px"></i> Trở về danh sách</a>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Img)
+        </dt>
+
+        <dd>
+            <img src="~/Theme/assets/images/products/@Model.Img" width="250px" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Describe)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Describe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+
+
+    </dl>
+</div>
+<a href="@Url.Action("Edit", "Home", new { id = Model.ID })" class="btn btn-warning"> Sửa</a>

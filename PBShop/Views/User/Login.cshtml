@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/PBShopHome_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row"
+         style="
+              border-radius: 10px;
+              box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+                0 10px 10px rgba(0, 0, 0, 0.22);
+              z-index: 1;
+              overflow: hidden;
+              margin: 50px;
+            ">
+        <!--Form Sign In-->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="signin-container">
+                <p class="title" style="margin-bottom: 40px">Đăng Nhập</p>
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <p class="form-row">
+                        <label for="fid-name">Email:<span class="requite">*</span></label>
+                        <input type="email"
+                               id="fid-name"
+                               name="Email"
+                               value=""
+                               class="txt-input" />
+                    </p>
+                    @ViewData["Err1"]
+                    <p class="form-row">
+                        <label for="fid-pass">Mật Khẩu:<span class="requite">*</span></label>
+                        <input type="password"
+                               id="fid-pass"
+                               name="Password"
+                               value=""
+                               class="txt-input" />
+                    </p>
+                    @ViewBag.Err2
+
+                    <p class="form-row wrap-btn" style="text-align: center">
+                        <button class="btn btn-submit btn-bold" type="submit">
+                            Đăng Nhập
+                        </button>
+                    </p>
+                    <p style="
+                    text-align: center;
+                    margin-top: 20px;
+                    color: #ffffff;
+                    text-transform: uppercase;
+                    border: none;
+                    border-radius: 9999px;
+                    text-align: center;
+                    font-weight: 700;
+                  ">
+                        <a href="@Url.Action("RequestResetPX","User")" class="link-to-help">Quên Mật Khẩu?</a>
+                    </p>
+                    @ViewBag.ThongBao
+                }
+
+            </div>
+        </div>
+
+        <!--Go to Register form-->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
+             style="padding: 0">
+            <div class="register-in-container">
+                <div class="intro">
+                    <h4 class="box-title">KHÁCH HÀNG MỚI?</h4>
+                    <p class="sub-title">Tạo tài khoản để có thể:</p>
+                    <ul class="lis">
+                        <li>mua hàng</li>
+                        <li>lưu lại sản phẩm bạn muốn mua</li>
+                        <li>Xem Lịch sử mua hàng</li>
+                    </ul>
+                    <a href="@Url.Action("Register","User")" class="btn btn-bold">Đăng Ký</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+<a href="@Url.Action("Login", "Home", new { Area = "Admin" })" style="margin-left:20px; text-decoration:none">Admin</a>

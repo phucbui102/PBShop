@@ -1,0 +1,377 @@
+﻿@model PagedList.IPagedList<PBShop.Models.GetProduct>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "shop";
+    Layout = "~/Views/Shared/PBShopHome_Layout.cshtml";
+}
+<style>
+    .nice-select.open .list{
+        height:125px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <!-- Main content -->
+        <div id="main-content" class="main-content col-lg-9 col-md-8 col-sm-12 col-xs-12" style="float:right">
+
+            <div class="block-item recently-products-cat md-margin-bottom-39">
+                <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile" data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":0,"slidesToShow":5, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 3}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":30}},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":10}}]}'>
+                    @{
+                        var db = new PBShop.Models.PBShopEntities();
+                        var List = from a in db.Products
+                                   orderby a.DateAdded descending
+                                   select a;
+
+
+
+                        foreach (var item in List)
+                        {
+                            <li class="product-item">
+                                <div class="contain-product layout-02">
+                                                        <div class="product-thumb">
+                                                            <a href="#" class="link-to-product">
+                                                                <img src="~/Theme/assets/images/products/@item.Img" alt="dd" width="270" height="270" class="product-thumnail">
+                                                            </a>
+
+                                                            <div class="labels">
+                                                                <span class="sale-label">-50%</span>
+                                                            </div>
+                                                        </div>
+                                    <div class="info">
+                                        <b class="categories">Fresh Fruit</b>
+                                        <h4 class="product-title"><a href="#" class="pr-name">@item.Name</a></h4>
+                                        <div class="price">
+                                            <ins><span class="price-amount"><span class="currencySymbol">₫</span>85.00</span></ins>
+                                            <del><span class="price-amount"><span class="currencySymbol">₫</span>95.00</span></del>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        }
+                    }
+
+                </ul>
+            </div>
+
+            <div class="product-category grid-style">
+
+                <div id="top-functions-area" class="top-functions-area">
+                    <div class="flt-item to-left group-on-mobile">
+                        <span class="flt-title">Refine</span>
+                        <a href="#" class="icon-for-mobile">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
+                        <div class="wrap-selectors">
+                            <form action="#" name="frm-refine" method="get">
+                                <span class="title-for-mobile">Refine Products By</span>
+                                <div data-title="Price:" class="selector-item">
+                                    <select name="price" class="selector">
+                                        <option value="all">Price</option>
+                                        <option value="class-1st">Less than 5₫</option>
+                                        <option value="class-2nd">₫5-10₫</option>
+                                        <option value="class-3rd">₫10-20₫</option>
+                                        <option value="class-4th">₫20-45₫</option>
+                                        <option value="class-5th">₫45-100₫</option>
+                                        <option value="class-6th">₫100-150₫</option>
+                                        <option value="class-7th">More than 150₫</option>
+                                    </select>
+                                </div>
+                                <div data-title="Brand:" class="selector-item">
+                                    <select name="brad" class="selector">
+                                        <option value="all">Top brands</option>
+                                        <option value="br2">Brand first</option>
+                                        <opton value="br3">Brand second</opton>
+                                        <option value="br4">Brand third</option>
+                                        <option value="br5">Brand fourth</option>
+                                        <option value="br6">Brand fiveth</option>
+                                    </select>
+                                </div>
+                                <div data-title="Avalability:" class="selector-item">
+                                    <select name="ability" class="selector">
+                                        <option value="all">Availability</option>
+                                        <option value="vl2">Availability 1</option>
+                                        <option value="vl3">Availability 2</option>
+                                        <option value="vl4">Availability 3</option>
+                                        <option value="vl5">Availability 4</option>
+                                        <option value="vl6">Availability 5</option>
+                                    </select>
+                                </div>
+                                <p class="btn-for-mobile"><button type="submit" class="btn-submit">Chọn</button></p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="flt-item to-right">
+                        <span class="flt-title">Sắp Xếp</span>
+                        <div class="wrap-selectors">
+                            <div class="selector-item orderby-selector">
+                                @*<select name="orderby" class="orderby" aria-label="Shop order">*@
+                                @*<option value="menu_order" selected="selected">Default sorting</option>
+            <option value="popularity">
+                hehe
+            </option>
+            <option value="rating">haa</option>
+            <option value="date">newness</option>
+            <option value="price">price: low to high</option>
+            <option value="price-desc">price: high to low</option>
+        </select>*@
+                                @using (Html.BeginForm("Shop", "PBSopHome", FormMethod.Get))
+                                {
+                                    @Html.DropDownList("sortOrder", (List<SelectListItem>)ViewBag.SortValue, "Mặc định", htmlAttributes: new { @onchange = "this.form.submit();", @class = "orderby" });
+                                    @Html.Hidden("searchString", (object)ViewBag.Keyword)
+                                    @Html.Hidden("IDType", (object)ViewBag.Subject)
+                                    @Html.Hidden("Pr_To", (object)ViewBag.PrTo)
+                                    @Html.Hidden("Pr_From", (object)ViewBag.PrFrom)
+                                }
+
+
+                            </div>
+                            <div class="selector-item viewmode-selector">
+                                <a href="category-grid-left-sidebar.html" class="viewmode grid-mode active"><i class="biolife-icon icon-grid"></i></a>
+                                <a href="category-list-left-sidebar.html" class="viewmode detail-mode"><i class="biolife-icon icon-list"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <ul class="products-list">
+                        @foreach (var item in Model)
+                        {
+                            //var type = var db = new PBShop.Models.PBShopEntities();
+
+                            <li class="product-item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                <div class="contain-product layout-default">
+                                    <div class="product-thumb">
+                                        <a href="@Url.Action("ProductDetails","PBSopHome", new { id = @item.ID })" class="link-to-product">
+                                            <img src="~/Theme/assets/images/products/@item.Img" alt="dd" width="270" height="270" class="product-thumnail">
+                                        </a>
+                                    </div>
+
+                                    <div class="info">
+                                        <b class="categories">@item.NameType</b>
+                                        <h4 class="product-title"><a href="@Url.Action("ProductDetails","PBSopHome", new { id = @item.ID })" class="pr-name">@item.Name</a></h4>
+                                        <div class="price">
+                                            <ins><span class="price-amount"><span class="currencySymbol">₫</span>@item.Promotional_Price</span></ins>
+                                            <del><span class="price-amount"><span class="currencySymbol">₫</span>@item.Price</span></del>
+                                        </div>
+                                        @*<div class="shipping-info">
+                                                <p class="shipping-day">3-Day Shipping</p>
+                                                <p class="for-today">Pree Pickup Today</p>
+                                            </div>*@
+                                        <div class="slide-down-box">
+                                            @*<p class="message">All products are carefully selected to ensure food safety.</p>*@
+                                            <div class="buttons">
+                                                <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                                <a href=" @Url.Action("ThemGioHang","ShoppingCart", new { ms = @item.ID, url = Request.Url.ToString() @*, @onchange = "this.form.submit();"*@})" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
+                                                <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
+
+                                                @*@Html.TextBox("myTextBox", new { @class = "jtb", @id = "TrajName", placeholder = "Traj Name" })
+
+                                                ₫("#TrajectoryName").keyup(function () {
+                                                if (₫('#TrajName').val() != "")
+                                                ₫("#BtnAddTraj").prop('disabled',false);
+                                                else
+                                                ₫("#BtnAddTraj").prop('disabled',true);
+                                                });*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+
+                @*<div class="biolife-panigations-block">
+                        <ul class="panigation-contain">
+                            <li><span class="current-page">1</span></li>
+                            <li><a href="#" class="link-page">2</a></li>
+                            <li><a href="#" class="link-page">3</a></li>
+                            <li><span class="sep">....</span></li>
+                            <li><a href="#" class="link-page">20</a></li>
+                            <li><a href="#" class="link-page next"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                        </ul>
+
+                    </div>*@
+
+                <div class="Container_PagedList" style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 20px; clear: both; border-top: 1px solid #e6e6e6; padding-top: 39px; margin-top: 20px; margin-bottom: 80px;">
+
+
+                    @Html.PagedListPager(Model, page => Url.Action("shop", new { page , sortOrder = ViewBag.SortOrder, searchString = ViewBag.Keyword , IDType = ViewBag.Subject }))
+
+                    @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount*@
+                </div>
+               
+
+
+            </div>
+
+        </div>
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar col-lg-3 col-md-4 col-sm-12 col-xs-12">
+            <div class="biolife-mobile-panels">
+                <span class="biolife-current-panel-title">Sidebar</span>
+                <a class="biolife-close-btn" href="#" data-object="open-mobile-filter">&times;</a>
+            </div>
+            @*<div class="sidebar-contain">
+                <div class="widget biolife-filter">
+                    <h4 class="wgt-title">Thương Hiệu</h4>
+                    <div class="wgt-content">
+                        <ul class="cat-list">
+                            <li class="cat-list-item"><a href="#" class="cat-link">Organic Food</a></li>
+                            <li class="cat-list-item"><a href="#" class="cat-link">Fresh Fruit</a></li>
+                            <li class="cat-list-item"><a href="#" class="cat-link">Dried Fruits</a></li>
+                        </ul>
+                    </div>
+                </div>*@
+
+                @*<div class="widget biolife-filter">
+                        <h4 class="wgt-title">Shipping & Pickup</h4>
+                        <div class="wgt-content">
+                            <ul class="cat-list">
+                                <li class="cat-list-item"><a href="#" class="cat-link">Show all</a></li>
+                                <li class="cat-list-item"><a href="#" class="cat-link">2- Day shipping</a></li>
+                                <li class="cat-list-item"><a href="#" class="cat-link">Shop to Home</a></li>
+                                <li class="cat-list-item"><a href="#" class="cat-link">Free Pickup</a></li>
+                            </ul>
+                        </div>
+                    </div>*@
+
+                <div class="widget price-filter biolife-filter">
+                    <h4 class="wgt-title">Price</h4>
+                    <div class="wgt-content">
+                        <div class="frm-contain">
+
+
+                            @using (Html.BeginForm("Shop", "PBSopHome", FormMethod.Get, new { @class = "form-search" }))
+                            {
+
+                                @*<form action="#" name="price-filter" id="price-filter" method="get">*@
+                                <p class="f-item">
+                                    <label for="pr-from">₫</label>
+                                    <input class="input-number" type="number" id="pr-from" value="@ViewBag.PrFrom" name="Pr_From" @*step="10000"*@>
+                                </p>
+                                <p class="f-item">
+                                    <label for="pr-to">to ₫</label>
+                                    <input class="input-number" type="number" id="pr-to" value="@ViewBag.PrTo" name="Pr_To">
+                                </p>
+                                <p class="f-item"><button class="btn-submit" type="submit">go</button></p>
+                                @*</form>*@
+                                @Html.Hidden("searchString", (object)ViewBag.Keyword)
+                                @Html.Hidden("IDType", (object)ViewBag.Subject)
+
+                            }
+                        </div>
+                        <ul class="check-list bold single">
+                            <li onclick="showDetails(this)" class="check-list-item" data-from=0 data-to=50000><a href="#" class="check-link">₫0 - ₫50.000</a></li>
+                            <li onclick="showDetails(this)" class="check-list-item"  data-from=50000 data-to=200000><a href="#" class="check-link">₫50.000 - ₫200.000</a></li>
+                            <li onclick="showDetails(this)" class="check-list-item" data-from=200000 data-to=500000><a href="#" class="check-link">₫200.000 - ₫500.000</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="widget biolife-filter">
+                    <h4 class="wgt-title">Thương Hiệu</h4>
+                    <div class="wgt-content">
+                        <ul class="check-list multiple">
+                            <li class="check-list-item"><a href="#" class="check-link">PB Organic</a></li>
+                            <li class="check-list-item"><a href="#" class="check-link">Mercury Shop</a></li>
+                            <li class="check-list-item"><a href="#" class="check-link">DK-D'LENKA</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                @*<div class="widget biolife-filter">
+                        <h4 class="wgt-title">Color</h4>
+                        <div class="wgt-content">
+                            <ul class="color-list">
+                                <li class="color-item"><a href="#" class="c-link"><span class="symbol img-color"></span>Multi</a></li>
+                                <li class="color-item"><a href="#" class="c-link"><span class="symbol hex-code color-01"></span>Red</a></li>
+                                <li class="color-item"><a href="#" class="c-link"><span class="symbol hex-code color-02"></span>Orrange</a></li>
+                                <li class="color-item"><a href="#" class="c-link"><span class="symbol hex-code color-03"></span>Other</a></li>
+                            </ul>
+                        </div>
+                    </div>*@
+
+                @*<div class="widget biolife-filter">
+                    <h4 class="wgt-title">Popular Size</h4>
+                    <div class="wgt-content">
+                        <ul class="check-list bold multiple">
+                            <li class="check-list-item"><a href="#" class="check-link">8oz</a></li>
+                            <li class="check-list-item"><a href="#" class="check-link">15oz</a></li>
+                            <li class="check-list-item"><a href="#" class="check-link">6oz</a></li>
+                            <li class="check-list-item"><a href="#" class="check-link">30oz</a></li>
+                        </ul>
+                    </div>
+                </div>*@
+
+                @*<div class="widget biolife-filter">
+                        <h4 class="wgt-title">Number of Pieces</h4>
+                        <div class="wgt-content">
+                            <ul class="check-list bold">
+                                <li class="check-list-item"><a href="#" class="check-link">1 to 9</a></li>
+                                <li class="check-list-item"><a href="#" class="check-link">10 to 15</a></li>
+                            </ul>
+                        </div>
+                    </div>*@
+
+                <div class="widget biolife-filter">
+                    <h4 class="wgt-title">Gợi ý</h4>
+                    <div class="wgt-content">
+                        <ul class="products">
+                            @{
+                                //var Listb = (from a in db.Products
+                                //             orderby a.DateAdded descending
+                                //             select a).Take(3);
+
+
+
+                                foreach (var item in ViewBag.Listb)
+                                {
+
+                                    <li class="pr-item">
+                                        <div class="contain-product style-widget">
+                                            <div class="product-thumb">
+                                                <a href="#" class="link-to-product" tabindex="0">
+                                                    <img src="~/Theme/assets/images/products/@item.Img" alt="dd" width="270" height="270" class="product-thumnail">
+                                                </a>
+                                            </div>
+                                            <div class="info">
+                                                <b class="categories">@item.Name</b>
+                                                <h4 class="product-title"><a href="#" class="pr-name" tabindex="0">@item.NameType</a></h4>
+                                                <div class="price">
+                                                    <ins><span class="price-amount"><span class="currencySymbol">₫</span>85.00</span></ins>
+                                                    <del><span class="price-amount"><span class="currencySymbol">₫</span>95.00</span></del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="widget biolife-filter">
+                    <h4 class="wgt-title">Tags</h4>
+                    <div class="wgt-content">
+                        <ul class="tag-cloud">
+                            
+                            <li class="tag-item"><a href="#" class="tag-link">Bán chạy</a></li>
+                            <li class="tag-item"><a href="#" class="tag-link">Hot</a></li>
+                            <li class="tag-item"><a href="#" class="tag-link">Top đánh giá</a></li>
+                            <li class="tag-item"><a href="#" class="tag-link">New</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+</div>
+

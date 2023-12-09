@@ -1,0 +1,802 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Biolife - Organic Food</title>
+    <link href="https://fonts.googleapis.com/css?family=Cairo:400,600,700&amp;display=swap"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&amp;display=swap"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i,700i"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&amp;display=swap"
+          rel="stylesheet" />
+    <link rel="shortcut icon"
+          type="image/x-icon"
+          href="~/Theme/assets/images/favicon.png" />
+    <link rel="stylesheet" href="~/Theme/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Theme/assets/css/animate.min.css" />
+    <link rel="stylesheet" href="~/Theme/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Theme/assets/css/nice-select.css" />
+    <link rel="stylesheet" href="~/Theme/assets/css/slick.min.css" />
+    <link rel="stylesheet" href="~/Theme/assets/css/style.css" />
+    <link rel="stylesheet" href="~/Theme/assets/css/main-color04.css" />
+
+    @*<meta property="og:url" content="https://www.your-domain.com/your-page.html" />*@
+    <meta property="og:type" content="test" />
+    <meta property="og:title" content="thử nghiệm chia sẻ lên fb" />
+    <meta property="og:description" content="Your description" />
+    <meta property="og:image" content="~/Theme/assets/images/favicon.png" />
+
+    <style>
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            background-color: #379237;
+        }
+
+        .pagination > li > a, .pagination > li > span {
+            color: #379237;
+        }
+
+        a.btn.btn-submit.btn-bold.cancelbtnP {
+            background-color: transparent;
+        }
+
+            a.btn.btn-submit.btn-bold.cancelbtnP:hover {
+                background-color: #444444;
+            }
+    </style>
+</head>
+<body class="biolife-body">
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0" nonce="IYVQ7fo3"></script>
+    <div class="fb-share-button" data-href="https://shopee.vn/Sen-%C4%91%C3%A1-mini-40-lo%E1%BA%A1i-kh%C3%A1c-nhau-SONDA-garden-c%C3%A2y-c%E1%BA%A3nh-trang-tr%C3%AD-nh%C3%A0-c%E1%BB%ADa-l%E1%BB%97i-1-%C4%91%E1%BB%95i-1-i.233555165.4355392759??publish_id=&sp_atk=3645acb6-8070-4688-a822-876dcd0b219c&xptdk=3645acb6-8070-4688-a822-876dcd0b219c" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocalhost%3A44364%2FPBSopHome%2FProductDetails%2F1&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+    <!-- Preloader -->
+    @*<div id="biof-loading">
+            <div class="biof-loading-center">
+                <div class="biof-loading-center-absolute">
+                    <div class="dot dot-one"></div>
+                    <div class="dot dot-two"></div>
+                    <div class="dot dot-three"></div>
+                </div>
+            </div>
+        </div>*@
+
+    <!-- HEADER -->
+    <header id="header" class="header-area style-01 layout-04">
+        <div class="header-top bg-main hidden-xs">
+            <div class="container">
+                <div class="top-bar left">
+                    <ul class="horizontal-menu">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>PBshop@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">Giao hàng miễn phí cho đơn hàng trị giá trên 200k</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="top-bar right">
+                    <ul class="social-list">
+                        <li>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-pinterest" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="horizontal-menu">
+                        <li class="horz-menu-item currency">
+                            <select name="currency">
+                                <option value="eur" selected>$ VNĐ</option>
+                                <option value="usd">$ USD</option>
+                                <!-- <option value="usd">£ GBP (Pound)</option>
+                                <option value="usd">¥ JPY (Yen)</option> -->
+                            </select>
+                        </li>
+                        <li class="horz-menu-item lang">
+                            <select name="language">
+                                <!-- <option value="fr">French (EUR)</option> -->
+                                <option value="en">English</option>
+                                <option value="ger" selected>Vietnamese</option>
+                                <!-- <option value="jp">Japan (JPY)</option> -->
+                            </select>
+                        </li>
+                        <li>
+                            @if (Session["NameCustomers"] != null)
+                            {
+                                <a href="login.html" class="login-link">
+                                    <i class="biolife-icon icon-login">
+                                    </i>@Session["NameCustomers"].ToString()
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Login","PBSopHome")" class="login-link">
+                                    <i class="biolife-icon icon-login">
+                                    </i>Đăng Nhập/Đăng Ký
+                                </a>
+                            }
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header-middle biolife-sticky-object">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-2 col-md-6 col-xs-6">
+                        <a href="@Url.Action("Index","PBSopHome")" class="biolife-logo">
+                            <img src="~/Theme/assets/images/pb_SHOP.png"
+                                 alt="biolife logo"
+                                 width="135"
+                                 height="36" />
+                        </a>
+                    </div>
+                    @*<div class="col-lg-6 col-md-7 hidden-sm hidden-xs">
+                            <div class="primary-menu">
+                                <ul class="menu biolife-menu clone-main-menu clone-primary-menu"
+                                    id="primary-menu"
+                                    data-menuname="main menu">
+                                    <li class="menu-item"><a href="@Url.Action("Index","PBSopHome")">Trang Chủ</a></li>
+
+                                    <li class="menu-item menu-item-has-children has-child">
+                                        <a href="@Url.Action("shop","PBSopHome")" class="menu-name" data-title="Product">Cửa Hàng</a>
+                                        <ul class="sub-menu">
+
+                                            <li class="menu-item menu-item-has-children has-child">
+                                                <a href="#"
+                                                   class="menu-name"
+                                                   data-title="Eggs & other considerations">Eggs & other considerations</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item">
+                                                        <a href="#">Classic Breakfast</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Huevos Rancheros</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Everything Egg Sandwich</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Egg Sandwich</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Vegan Burrito</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Biscuits and Gravy</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Bacon Avo Egg Sandwich</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item menu-item-has-children has-child">
+                                                <a href="#"
+                                                   class="menu-name"
+                                                   data-title="Eggs & other considerations">Eggs & other considerations</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item">
+                                                        <a href="#">Classic Breakfast</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Huevos Rancheros</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Everything Egg Sandwich</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Egg Sandwich</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Vegan Burrito</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Biscuits and Gravy</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Bacon Avo Egg Sandwich</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item menu-item-has-children has-child">
+                                                <a href="#"
+                                                   class="menu-name"
+                                                   data-title="Eggs & other considerations">Eggs & other considerations</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item">
+                                                        <a href="#">Classic Breakfast</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Huevos Rancheros</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Everything Egg Sandwich</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Egg Sandwich</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Vegan Burrito</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Biscuits and Gravy</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Bacon Avo Egg Sandwich</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item menu-item-has-children has-child">
+                                                <a href="#"
+                                                   class="menu-name"
+                                                   data-title="Eggs & other considerations">Eggs & other considerations</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item">
+                                                        <a href="#">Classic Breakfast</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Huevos Rancheros</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Everything Egg Sandwich</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Egg Sandwich</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Vegan Burrito</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Biscuits and Gravy</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Bacon Avo Egg Sandwich</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item menu-item-has-children has-child">
+                                                <a href="#"
+                                                   class="menu-name"
+                                                   data-title="Sides & Extras">Sides & Extras</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item">
+                                                        <a href="#">Breakfast Burrito</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Crab Cake Benedict</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Corned Beef Hash</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Steak & Eggs</a>
+                                                    </li>
+                                                    <li class="menu-item"><a href="#">Oatmeal</a></li>
+                                                    <li class="menu-item">
+                                                        <a href="#">Fruit & Yogurt Parfait</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+
+                                        </ul>
+                                    </li>
+
+                                    <li class="menu-item menu-item-has-children has-megamenu">
+                                        <a href="#" class="menu-name" data-title="Blog">Blog</a>
+                                        <div class="wrap-megamenu lg-width-800 md-width-750">
+                                            <div class="mega-content">
+                                                <div class="col-lg-3 col-md-3 col-xs-6">
+                                                    <div class="wrap-custom-menu vertical-menu">
+                                                        <h4 class="menu-title">Blog Categories</h4>
+                                                        <ul class="menu">
+                                                            <li><a href="#">Beauty (30)</a></li>
+                                                            <li><a href="#">Fashion (50)</a></li>
+                                                            <li><a href="#">Food (10)</a></li>
+                                                            <li><a href="#">Life Style (60)</a></li>
+                                                            <li><a href="#">Travel (10)</a></li>
+                                                            <li><a href="#">Nutrition (35)</a></li>
+                                                            <li><a href="#">Food Decoration (45)</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-xs-6">
+                                                    <div class="wrap-custom-menu vertical-menu">
+                                                        <h4 class="menu-title">Featured Posts</h4>
+                                                        <ul class="menu">
+                                                            <li>
+                                                                <a href="#">Post example<sup>#1</sup></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Post example<sup>#2</sup></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Post example<sup>#3</sup></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Post example<sup>#4</sup></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Post example<sup>#5</sup></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Post example<sup>#6</sup></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Post example<sup>#7</sup></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-xs-12 md-margin-top-0 xs-margin-top-25px">
+                                                    <div class="block-posts">
+                                                        <h4 class="menu-title">Recent Posts</h4>
+                                                        <ul class="posts">
+                                                            <li>
+                                                                <div class="block-post-item">
+                                                                    <div class="thumb">
+                                                                        <a href="#">
+                                                                            <img src="~/Theme/assets/images/megamenu/thumb-05.jpg"
+                                                                                 width="100"
+                                                                                 height="73"
+                                                                                 alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="left-info">
+                                                                        <h4 class="post-name">
+                                                                            <a href="#">
+                                                                                Ashwagandha: The #1 Herb in the World
+                                                                                for Anxiety?
+                                                                            </a>
+                                                                        </h4>
+                                                                        <span class="p-date">Jan 05, 2019</span>
+                                                                        <span class="p-comment">2 Comments</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="block-post-item">
+                                                                    <div class="thumb">
+                                                                        <a href="#">
+                                                                            <img src="~/Theme/assets/images/megamenu/thumb-06.jpg"
+                                                                                 width="100"
+                                                                                 height="73"
+                                                                                 alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="left-info">
+                                                                        <h4 class="post-name">
+                                                                            <a href="#">
+                                                                                Ashwagandha: The #1 Herb in the World
+                                                                                for Anxiety?
+                                                                            </a>
+                                                                        </h4>
+                                                                        <span class="p-date">May 15, 2019</span>
+                                                                        <span class="p-comment">8 Comments</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="block-post-item">
+                                                                    <div class="thumb">
+                                                                        <a href="#">
+                                                                            <img src="~/Theme/assets/images/megamenu/thumb-07.jpg"
+                                                                                 width="100"
+                                                                                 height="73"
+                                                                                 alt="" />
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="left-info">
+                                                                        <h4 class="post-name">
+                                                                            <a href="#">
+                                                                                Ashwagandha: The #1 Herb in the World
+                                                                                for Anxiety?
+                                                                            </a>
+                                                                        </h4>
+                                                                        <span class="p-date">Apr 26, 2019</span>
+                                                                        <span class="p-comment">10 Comments</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="menu-item"><a href="@Url.Action("Contact","PBSopHome")">Liên Hệ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-md-6 col-xs-6">
+                            <div class="biolife-cart-info">
+                                <div class="mobile-search">
+                                    <a href="javascript:void(0)" class="open-searchbox">
+                                        <i class="biolife-icon icon-search"></i>
+                                    </a>
+
+                                    <div class="mobile-search-content">
+                                        <div class="container_Find_and_result" style="background-color: #ffff; height: 50px;width: 400px; position: absolute; top: 90px; left: 200px;     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+                        border: 1px solid #e4e4e4; box-sizing: border-box;">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="wishlist-block hidden-sm hidden-xs">
+                                    <a href="#" class="link-to">
+                                        <span class="icon-qty-combine">
+                                            <i class="icon-heart-bold biolife-icon"></i>
+                                            <span class="qty">4</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="minicart-block">
+                                    <div class="minicart-contain">
+
+                                    </div>
+                                </div>
+                                <div class="mobile-menu-toggle">
+                                    <a class="btn-toggle"
+                                       data-object="open-mobile-menu"
+                                       href="javascript:void(0)">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Contain -->
+    <div class="page-contain">
+        <!-- Main content -->
+        <div id="main-content" class="main-content">
+            @RenderBody();
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="footer layout-03">
+        <div class="footer-content background-footer-03">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <section class="footer-item">
+                            <a href="home-04.html" class="logo footer-logo">
+                                <img src="~/Theme/assets/images/organic-4.png"
+                                     alt="biolife logo"
+                                     width="135"
+                                     height="36" />
+                            </a>
+                            <div class="footer-phone-info">
+                                <i class="biolife-icon icon-head-phone"></i>
+                                <p class="r-info">
+                                    <span>Trung Tâm Hỗ Trợ</span>
+                                    <span>(+84)  886653439</span>
+                                </p>
+                            </div>
+                            <!-- <div class="newsletter-block layout-01">
+                              <h4 class="title">Đăng Ký</h4>
+                              <div class="form-content">
+                                <form action="#" name="new-letter-foter">
+                                  <input
+                                    type="email"
+                                    class="input-text email"
+                                    value=""
+                                    placeholder="Your email here..."
+                                  />
+                                  <button type="submit" class="bnt-submit" name="ok">
+                                    Sign up
+                                  </button>
+                                </form>
+                              </div>
+                            </div> -->
+                        </section>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
+                        <section class="footer-item">
+                            <h3 class="section-title">Về BP SHOP</h3>
+                            <div class="wrap-custom-menu vertical-menu-2">
+                                <ul class="menu">
+                                    <li><a href="#">Giới Thiệu Về BP SHOP</a></li>
+                                    <li><a href="#">Liên Hệ</a></li>
+                                    <li><a href="#">Chính Sách</a></li>
+                                    <li><a href="#">FAQs</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
+                        <section class="footer-item">
+                            <h3 class="section-title">Product</h3>
+                            <div class="wrap-custom-menu vertical-menu-2">
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#" title="twitter" class="socail-btn">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>Twitter
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="facebook" class="socail-btn">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>Facebook
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" title="youtube" class="socail-btn">
+                                            <i class="fa fa-youtube" aria-hidden="true"></i>Youtube
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="instagram" class="socail-btn">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>Instagram
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 md-margin-top-5px sm-margin-top-50px xs-margin-top-40px">
+                        <section class="footer-item">
+                            <h3 class="section-title">Transport Offices</h3>
+                            <div class="contact-info-block footer-layout xs-padding-top-10px">
+                                <ul class="contact-lines">
+                                    <li>
+                                        <p class="info-item">
+                                            <i class="biolife-icon icon-location"></i>
+                                            <b class="desc">
+                                                06 Trần Văn Ơn, Phú Hoà, Thủ Dầu Một, Bình Dương
+                                            </b>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="info-item">
+                                            <i class="biolife-icon icon-phone"></i>
+                                            <b class="desc">Phone: (+84) 886653738 (+84) 326832245</b>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="info-item">
+                                            <i class="biolife-icon icon-letter"></i>
+                                            <b class="desc">Email: pbshop@gmail.com</b>
+                                        </p>
+                                    </li>
+                                    <!-- <li>
+                                      <p class="info-item">
+                                        <i class="biolife-icon icon-clock"></i>
+                                        <b class="desc">Hours: 7 Days a week from 10:00 am</b>
+                                      </p>
+                                    </li> -->
+                                </ul>
+                            </div>
+                            <!-- <div class="biolife-social inline">
+                              <ul class="socials">
+                                <li>
+                                  <a href="#" title="twitter" class="socail-btn"
+                                    ><i class="fa fa-twitter" aria-hidden="true"></i
+                                  ></a>
+                                </li>
+                                <li>
+                                  <a href="#" title="facebook" class="socail-btn"
+                                    ><i class="fa fa-facebook" aria-hidden="true"></i
+                                  ></a>
+                                </li>
+                                <li>
+                                  <a href="#" title="pinterest" class="socail-btn"
+                                    ><i class="fa fa-pinterest" aria-hidden="true"></i
+                                  ></a>
+                                </li>
+                                <li>
+                                  <a href="#" title="youtube" class="socail-btn"
+                                    ><i class="fa fa-youtube" aria-hidden="true"></i
+                                  ></a>
+                                </li>
+                                <li>
+                                  <a href="#" title="instagram" class="socail-btn"
+                                    ><i class="fa fa-instagram" aria-hidden="true"></i
+                                  ></a>
+                                </li>
+                              </ul>
+                            </div> -->
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="separator sm-margin-top-62px xs-margin-top-40px"></div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                        <div class="copy-right-text">
+                            <p><a href="#">PhucBui</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6 col-xs-12">
+                        <div class="payment-methods">
+                            <ul>
+
+                                <li>
+                                    <a href="#" class="payment-link">
+                                        <img src="~/Theme/assets/images/logo_pay/cod.png"
+                                             width="51"
+                                             height="36"
+                                             alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="payment-link">
+                                        <img src="~/Theme/assets/images/logo_pay/master_card.png"
+                                             width="51"
+                                             height="36"
+                                             alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="payment-link">
+                                        <img src="~/Theme/assets/images/logo_pay/VISA-Logo.png"
+                                             width="51"
+                                             height="36"
+                                             alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="payment-link">
+                                        <img src="~/Theme/assets/images/logo_pay/momo.png"
+                                             width="51"
+                                             height="36"
+                                             alt="" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--Footer For Mobile-->
+    <div class="mobile-footer">
+        <div class="mobile-footer-inner">
+            <div class="mobile-block block-menu-main">
+                <a class="menu-bar menu-toggle btn-toggle"
+                   data-object="open-mobile-menu"
+                   href="javascript:void(0)">
+                    <span class="fa fa-bars"></span>
+                    <span class="text">Menu</span>
+                </a>
+            </div>
+            <div class="mobile-block block-sidebar">
+                <a class="menu-bar filter-toggle btn-toggle"
+                   data-object="open-mobile-filter"
+                   href="javascript:void(0)">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>
+                    <span class="text">Sidebar</span>
+                </a>
+            </div>
+            <div class="mobile-block block-minicart">
+                <a class="link-to-cart" href="#">
+                    <span class="fa fa-shopping-bag" aria-hidden="true"></span>
+                    <span class="text">Cart</span>
+                </a>
+            </div>
+            <div class="mobile-block block-global">
+                <a class="menu-bar myaccount-toggle btn-toggle"
+                   data-object="global-panel-opened"
+                   href="javascript:void(0)">
+                    <span class="fa fa-globe"></span>
+                    <span class="text">Global</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-block-global">
+        <div class="biolife-mobile-panels">
+            <span class="biolife-current-panel-title">Global</span>
+            <a class="biolife-close-btn" data-object="global-panel-opened" href="#">&times;</a>
+        </div>
+        <div class="block-global-contain">
+            <div class="glb-item my-account">
+                <b class="title">My Account</b>
+                <ul class="list">
+                    <li class="list-item"><a href="#">Login/register</a></li>
+                    <li class="list-item">
+                        <a href="#">Wishlist <span class="index">(8)</span></a>
+                    </li>
+                    <li class="list-item"><a href="#">Checkout</a></li>
+                </ul>
+            </div>
+            <div class="glb-item currency">
+                <b class="title">Currency</b>
+                <ul class="list">
+                    <li class="list-item"><a href="#">€ EUR (Euro)</a></li>
+                    <li class="list-item"><a href="#">$ USD (Dollar)</a></li>
+                    <li class="list-item"><a href="#">£ GBP (Pound)</a></li>
+                    <li class="list-item"><a href="#">¥ JPY (Yen)</a></li>
+                </ul>
+            </div>
+            <div class="glb-item languages">
+                <b class="title">Language</b>
+                <ul class="list inline">
+                    <li class="list-item">
+                        <a href="#">
+                            <img src="~/Theme/assets/images/languages/us.jpg"
+                                 alt="flag"
+                                 width="24"
+                                 height="18" />
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#">
+                            <img src="~/Theme/assets/images/languages/fr.jpg"
+                                 alt="flag"
+                                 width="24"
+                                 height="18" />
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#">
+                            <img src="~/Theme/assets/images/languages/ger.jpg"
+                                 alt="flag"
+                                 width="24"
+                                 height="18" />
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#">
+                            <img src="~/Theme/assets/images/languages/jap.jpg"
+                                 alt="flag"
+                                 width="24"
+                                 height="18" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--Quickview Popup-->
+    @*@{
+            Html.RenderPartial("PartialProductDetails");
+        }*@
+    @*@Html.Action("PartialProductDetails", "PBSopHome", new { ms = @item.ID })*@
+
+    <!-- Scroll Top Button -->
+    <a class="btn-scroll-top"><i class="biolife-icon icon-left-arrow"></i></a>
+
+    <script src="~/Theme/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="~/Theme/assets/js/bootstrap.min.js"></script>
+    <script src="~/Theme/assets/js/jquery.countdown.min.js"></script>
+    <script src="~/Theme/assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/Theme/assets/js/jquery.nicescroll.min.js"></script>
+    <script src="~/Theme/assets/js/slick.min.js"></script>
+    <script src="~/Theme/assets/js/biolife.framework.js"></script>
+    <script src="~/Theme/assets/js/functions.js"></script>
+</body>
+</html>

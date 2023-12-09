@@ -1,0 +1,201 @@
+﻿﻿@model IEnumerable<PBShop.Models.Type>
+<ul class="menu clone-main-menu">
+    @foreach (var item in Model)
+    {
+    <li class="menu-item menu-item-has-children has-megamenu">
+        <a href="@Url.Action("shop","PBSopHome" , new { IDType = item.ID})"
+           class="menu-name"
+           data-title="Fruit & Nut Gifts"
+           style="display: flex;">
+            <div class="container_icon_nav" style="width: 40px; display: flex; align-items: center;"><img src="~/Theme/assets/images/icon/@item.Icon" style="width:30px; height:30px " alt=""></div>@item.NameType
+        </a>
+
+        @*<div class="wrap-megamenu lg-width-900 md-width-640">
+            <div class="mega-content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 xs-margin-bottom-25 md-margin-bottom-0">
+                        <div class="wrap-custom-menu vertical-menu">
+                            <h4 class="menu-title">Fresh Fuits</h4>
+                            <ul class="menu">
+                                <li><a href="#">Fruit & Nut Gifts</a></li>
+                                <li><a href="#">Mixed Fruits</a></li>
+                                <li><a href="#">Oranges</a></li>
+                                <li><a href="#">Bananas & Plantains</a></li>
+                                <li><a href="#">Fresh Gala Apples</a></li>
+                                <li><a href="#">Berries</a></li>
+                                <li><a href="#">Pears</a></li>
+                                <li><a href="#">Produce</a></li>
+                                <li><a href="#">Snack Foods</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 lg-padding-left-23 xs-margin-bottom-25 md-margin-bottom-0">
+                        <div class="wrap-custom-menu vertical-menu">
+                            <h4 class="menu-title">Nut Gifts</h4>
+                            <ul class="menu">
+                                <li>
+                                    <a href="#">Non-Dairy Coffee Creamers</a>
+                                </li>
+                                <li><a href="#">Coffee Creamers</a></li>
+                                <li><a href="#">Mayonnaise</a></li>
+                                <li><a href="#">Almond Milk</a></li>
+                                <li><a href="#">Ghee</a></li>
+                                <li><a href="#">Beverages</a></li>
+                                <li>
+                                    <a href="#">Ranch Salad Dressings</a>
+                                </li>
+                                <li><a href="#">Hemp Milk</a></li>
+                                <li><a href="#">Nuts & Seeds</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-4 col-sm-12 lg-padding-left-50 xs-margin-bottom-25 md-margin-bottom-0">
+                        <div class="biolife-products-block max-width-270">
+                            <h4 class="menu-title">
+                                Bestseller Products
+                            </h4>
+                            <ul class="products-list default-product-style biolife-carousel nav-none-after-1k2 nav-center"
+                                data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":30,"slidesToShow":1, "responsive":[{"breakpoint":767, "settings":{ "arrows": false}}]}'>
+                                <li class="product-item">
+                                    <div class="contain-product none-overlay">
+                                        <div class="product-thumb">
+                                            <a href="#" class="link-to-product">
+                                                <img src="assets/images/products/p-08.jpg"
+                                                     alt="dd"
+                                                     width="270"
+                                                     height="270"
+                                                     class="product-thumnail" />
+                                            </a>
+                                        </div>
+                                        <div class="info">
+                                            <b class="categories">Fresh Fruit</b>
+                                            <h4 class="product-title">
+                                                <a href="#" class="pr-name">National Fresh Fruit</a>
+                                            </h4>
+                                            <div class="price">
+                                                <ins>
+                                                    <span class="price-amount">
+                                                        <span class="currencySymbol">£</span>85.00
+                                                    </span>
+                                                </ins>
+                                                <del>
+                                                    <span class="price-amount">
+                                                        <span class="currencySymbol">£</span>95.00
+                                                    </span>
+                                                </del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <div class="contain-product none-overlay">
+                                        <div class="product-thumb">
+                                            <a href="#" class="link-to-product">
+                                                <img src="assets/images/products/p-11.jpg"
+                                                     alt="dd"
+                                                     width="270"
+                                                     height="270"
+                                                     class="product-thumnail" />
+                                            </a>
+                                        </div>
+                                        <div class="info">
+                                            <b class="categories">Fresh Fruit</b>
+                                            <h4 class="product-title">
+                                                <a href="#" class="pr-name">National Fresh Fruit</a>
+                                            </h4>
+                                            <div class="price">
+                                                <ins>
+                                                    <span class="price-amount">
+                                                        <span class="currencySymbol">£</span>85.00
+                                                    </span>
+                                                </ins>
+                                                <del>
+                                                    <span class="price-amount">
+                                                        <span class="currencySymbol">£</span>95.00
+                                                    </span>
+                                                </del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <div class="contain-product none-overlay">
+                                        <div class="product-thumb">
+                                            <a href="#" class="link-to-product">
+                                                <img src="assets/images/products/p-15.jpg"
+                                                     alt="dd"
+                                                     width="270"
+                                                     height="270"
+                                                     class="product-thumnail" />
+                                            </a>
+                                        </div>
+                                        <div class="info">
+                                            <b class="categories">Fresh Fruit</b>
+                                            <h4 class="product-title">
+                                                <a href="#" class="pr-name">National Fresh Fruit</a>
+                                            </h4>
+                                            <div class="price">
+                                                <ins>
+                                                    <span class="price-amount">
+                                                        <span class="currencySymbol">£</span>85.00
+                                                    </span>
+                                                </ins>
+                                                <del>
+                                                    <span class="price-amount">
+                                                        <span class="currencySymbol">£</span>95.00
+                                                    </span>
+                                                </del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 md-margin-top-9">
+                        <div class="biolife-brand">
+                            <ul class="brands">
+                                <li>
+                                    <a href="#">
+                                        <img src="assets/images/megamenu/brand-organic.png"
+                                             width="161"
+                                             height="136"
+                                             alt="organic" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="assets/images/megamenu/brand-explore.png"
+                                             width="160"
+                                             height="136"
+                                             alt="explore" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="assets/images/megamenu/brand-organic-2.png"
+                                             width="99"
+                                             height="136"
+                                             alt="organic 2" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="assets/images/megamenu/brand-eco-teas.png"
+                                             width="164"
+                                             height="136"
+                                             alt="eco teas" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    </li>
+     }
+</ul>

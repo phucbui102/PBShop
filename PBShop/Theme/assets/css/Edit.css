@@ -1,0 +1,66 @@
+.box-content .pay_ {
+    display: flex;
+   align-items: center;
+   margin: 20px 0;
+}
+
+.box-content .pay_ a{
+    border: 1px solid #379237;
+    padding: 10px;
+
+}
+
+
+ul.horizontal-menu li.Login_Container {
+    position: relative;
+}
+
+    ul.horizontal-menu li.Login_Container:hover .popover__content {
+        visibility: visible;
+        /* display: none; */
+        /* transform: translate(0, -20px); */
+    }
+
+    ul.horizontal-menu li.Login_Container .popover__content {
+        /* display: none; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        visibility: hidden;
+        width: auto;
+        transform: translate(0, 10px);
+        z-index: 1000;
+        color: rgb(57, 57, 57);
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        background-color: #ffff;
+        transition: all 200ms ease;
+    }
+
+        ul.horizontal-menu li.Login_Container .popover__content:before {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            right: calc(50% - 10px);
+            top: -8px;
+            border-style: solid;
+            border-width: 0 10px 10px 10px;
+            border-color: transparent transparent #ffffff transparent;
+            transition-duration: 0.3s;
+            transition-property: transform;
+        }
+
+
+        ul.horizontal-menu li.Login_Container .popover__content ul {
+            list-style: none;
+            padding: 10px;
+        }
+
+            ul.horizontal-menu li.Login_Container .popover__content ul li {
+                padding: 5px 0;
+                text-align: left;
+            }
+
+                ul.horizontal-menu li.Login_Container .popover__content ul li a {
+                    color: rgb(47, 46, 46);
+                }

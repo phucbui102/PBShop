@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PBShopModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="ShoppingCarts" Relationship="Self.FK_ShoppingCart_Customer" FromRole="Customer" ToRole="ShoppingCart" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Promotional_Price" Type="Double" Nullable="false" />
+    <Property Name="Img" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Type" Type="Int32" Nullable="false" />
+    <Property Name="Id_Promotional" Type="Int32" Nullable="false" />
+    <Property Name="DateAdded" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Promotion" Relationship="Self.FK_Product_Promotion" FromRole="Product" ToRole="Promotion" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_Product_Type" FromRole="Product" ToRole="Type" />
+    <NavigationProperty Name="ShoppingCartDetails" Relationship="Self.FK_ShoppingCartDetails_Product" FromRole="Product" ToRole="ShoppingCartDetails" />
+  </EntityType>
+  <EntityType Name="Promotion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartDay" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDay" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Promotion" FromRole="Promotion" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ShoppingCart">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="IdCustomer" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_ShoppingCart_Customer" FromRole="ShoppingCart" ToRole="Customer" />
+    <NavigationProperty Name="ShoppingCartDetails" Relationship="Self.FK_ShoppingCartDetails_ShoppingCart" FromRole="ShoppingCart" ToRole="ShoppingCartDetails" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Icon" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Type" FromRole="Type" ToRole="Product" />
+    <NavigationProperty Name="Type_Details" Relationship="Self.FK_Type_Details_Type" FromRole="Type" ToRole="Type_Details" />
+  </EntityType>
+  <EntityType Name="ShoppingCartDetail">
+    <Key>
+      <PropertyRef Name="Id_Product" />
+      <PropertyRef Name="Quantity" />
+    </Key>
+    <Property Name="Id_Product" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_ShoppingCartDetails_Product" FromRole="ShoppingCartDetails" ToRole="Product" />
+    <NavigationProperty Name="ShoppingCart" Relationship="Self.FK_ShoppingCartDetails_ShoppingCart" FromRole="ShoppingCartDetails" ToRole="ShoppingCart" />
+  </EntityType>
+  <EntityType Name="Type_Details">
+    <Key>
+      <PropertyRef Name="Id_Type" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id_Type" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_Type_Details_Type" FromRole="Type_Details" ToRole="Type" />
+  </EntityType>
+  <Association Name="FK_ShoppingCart_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Promotion">
+    <End Role="Promotion" Type="Self.Promotion" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promotion">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Id_Promotional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Id_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShoppingCartDetails_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ShoppingCartDetails" Type="Self.ShoppingCartDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShoppingCartDetails">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShoppingCartDetails_ShoppingCart">
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="1" />
+    <End Role="ShoppingCartDetails" Type="Self.ShoppingCartDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShoppingCart">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShoppingCartDetails">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Type_Details_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="1" />
+    <End Role="Type_Details" Type="Self.Type_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Type_Details">
+        <PropertyRef Name="Id_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PBShopEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Promotions" EntityType="Self.Promotion" />
+    <EntitySet Name="ShoppingCarts" EntityType="Self.ShoppingCart" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Types" EntityType="Self.Type" />
+    <EntitySet Name="ShoppingCartDetails" EntityType="Self.ShoppingCartDetail" />
+    <EntitySet Name="Type_Details" EntityType="Self.Type_Details" />
+    <AssociationSet Name="FK_ShoppingCart_Customer" Association="Self.FK_ShoppingCart_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Promotion" Association="Self.FK_Product_Promotion">
+      <End Role="Promotion" EntitySet="Promotions" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Type" Association="Self.FK_Product_Type">
+      <End Role="Type" EntitySet="Types" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShoppingCartDetails_Product" Association="Self.FK_ShoppingCartDetails_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ShoppingCartDetails" EntitySet="ShoppingCartDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShoppingCartDetails_ShoppingCart" Association="Self.FK_ShoppingCartDetails_ShoppingCart">
+      <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+      <End Role="ShoppingCartDetails" EntitySet="ShoppingCartDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Type_Details_Type" Association="Self.FK_Type_Details_Type">
+      <End Role="Type" EntitySet="Types" />
+      <End Role="Type_Details" EntitySet="Type_Details" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

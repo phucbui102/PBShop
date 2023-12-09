@@ -1,0 +1,106 @@
+﻿@model PBShop.Models.Customer
+@{
+    ViewBag.Title = "ResetPW";
+    Layout = "~/Views/Shared/PBShopHome_Layout.cshtml";
+}
+
+<!--Navigation section-->
+<div class="container">
+    <nav class="biolife-nav">
+        <ul>
+            <li class="nav-item">
+                <a href="index-2.html" class="permal-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <span class="current-page">Authentication</span>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="page-contain login-page">
+    <!-- Main content -->
+    <div id="main-content" class="main-content">
+        <div class="container">
+            <div class="row"
+                 style="
+              border-radius: 10px;
+              box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+                0 10px 10px rgba(0, 0, 0, 0.22);
+              z-index: 1;
+              overflow: hidden;
+              margin: 50px;
+            ">
+                <!--Form Sign In-->
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="signin-container">
+                        <p class="title" style="margin-bottom: 40px">
+                            Đặt Lại Mật Khẩu
+                        </p>
+                        @using (Html.BeginForm("resetPW", "User"))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(model => model.ID)
+                            @Html.HiddenFor(model => model.Email)
+                            @Html.HiddenFor(model => model.Phone)
+                            @Html.HiddenFor(model => model.Name)
+                            <input name="ID"
+                                   type="hidden"
+                                   value="@ViewBag.IDCTM" />
+                            <p class="form-row">
+                                <label for="fid-name">Mật Khẩu:<span class="requite">*</span></label>
+                                <input type="password"
+                                       id="fid-name"
+                                       name="Password"
+                                       value=""
+                                       class="txt-input" />
+                            </p>
+                            <p class="form-row">
+                                <label for="fid-pass">Nhập Lại Mật Khẩu:<span class="requite">*</span></label>
+                                <input type="password"
+                                       id="fid-pass"
+                                       name="Password2"
+                                       value=""
+                                       class="txt-input" />
+                            </p>
+
+                            <p class="form-row wrap-btn" style="text-align: center">
+                                <button class="btn btn-submit btn-bold" type="submit">
+                                    Đăng Nhập
+                                </button>
+                            </p>
+                            <p style="
+                      text-align: center;
+                      margin-top: 20px;
+                      color: #ffffff;
+                      text-transform: uppercase;
+                      border: none;
+                      border-radius: 9999px;
+                      text-align: center;
+                      font-weight: 700;
+                    ">
+                            </p>
+                        }
+                    </div>
+                </div>
+
+                <!--Go to Register form-->
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
+                     style="padding: 0">
+                    <div class="register-in-container">
+                        <div class="intro">
+                            <h4 class="box-title">KHÁCH HÀNG MỚI?</h4>
+                            <p class="sub-title">Tạo tài khoản để có thể:</p>
+                            <ul class="lis">
+                                <li>mua hàng</li>
+                                <li>lưu lại sản phẩm bạn muốn mua</li>
+                                <li>Xem Lịch sử mua hàng</li>
+                            </ul>
+                            <a href="#" class="btn btn-bold">Đăng Ký</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

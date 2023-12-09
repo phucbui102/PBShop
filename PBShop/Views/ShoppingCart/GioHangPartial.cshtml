@@ -1,0 +1,83 @@
+﻿﻿﻿@using PBShop.Models;
+@model List<ProductModel>
+
+    <a href="@Url.Action("ShopCart","ShoppingCart")" class="link-to">
+        <span class="icon-qty-combine">
+            <i class="icon-cart-mini biolife-icon"></i>
+            <span class="qty">@ViewBag.TongSoLuong</span>
+        </span>
+        <span class="title">Giỏ hàng - </span>
+        <span class="sub-total">0 ₫</span>
+    </a>
+    <div class="cart-content">
+        <div class="cart-inner">
+            @if (Model.Count() == 0)
+            {
+               <p class="minicart-empty">Không có sản phẩm nào</p>
+            }
+            else
+            {
+            <ul class="products">
+            @foreach (var item in Model)
+            {
+            <li>
+                <div class="minicart-item">
+                    <div class="thumb">
+                        <a href="#">
+                            <img src="~/Theme/assets/images/products/@item.AnhBiaP"
+                                 width="90"
+                                 height="90"
+                                 alt="National Fresh" />
+                        </a>
+                    </div>
+                    <div class="left-info">
+                        <div class="product-title">
+                            <a href="#" class="product-name">@item.NameP</a>
+                        </div>
+                        <div class="price">
+                            <ins>
+                                <span class="price-amount">
+                                    <span class="currencySymbol">£</span>85.00
+                                </span>
+                            </ins>
+                            <del>
+                                <span class="price-amount">
+                                    <span class="currencySymbol">£</span>95.00
+                                </span>
+                            </del>
+                        </div>
+                        <div class="qty">
+                            <label for="cart[id123][qty]">Qty:</label>
+                            <input type="number"
+                                   class="input-qty"
+                                   name="cart[id123][qty]"
+                                   id="cart[id123][qty]"
+                                   value="@item.SoLuongP"
+                                   disabled />
+                        </div>
+                    </div>
+                    <div class="action">
+                        <a href="#" class="edit">
+                            <i class="fa fa-pencil"
+                               aria-hidden="true"></i>
+                        </a>
+                        <a href="@Url.Action("XoaSPKhoiGioHang","ShoppingCart", new { ID = @item.IDP, url = Request.Url.ToString() })" class="removef">
+                            <i class="fa fa-trash-o"
+                               aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            }
+            </ul>
+             <p class="btn-control">
+            <a href="#" class="btn view-cart">Xem giỏ</a>
+            <a href="#" class="btn">checkout</a>
+             </p>
+            } 
+        </div>
+    </div>
+
+
+
+

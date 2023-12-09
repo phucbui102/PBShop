@@ -1,0 +1,1796 @@
+﻿﻿﻿@model IEnumerable<PBShop.Models.GetProduct>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/PBShopHome_Layout.cshtml";
+}
+
+
+<div id="biof-loading">
+        <div class="biof-loading-center">
+            <div class="biof-loading-center-absolute">
+                <div class="dot dot-one"></div>
+                <div class="dot dot-two"></div>
+                <div class="dot dot-three"></div>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 hidden-sm hidden-xs">
+            <div class="biolife-vertical-menu none-box-shadow">
+                <div class="vertical-menu vertical-category-block always">
+                    <div class="block-title">
+                        <span class="menu-icon">
+                            <span class="line-1"></span>
+                            <span class="line-2"></span>
+                            <span class="line-3"></span>
+                        </span>
+                        <span class="menu-title">Danh Mục</span>
+                        <span class="angle" data-tgleclass="fa fa-caret-down">
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="wrap-menu">
+                        @Html.Action("PartialMenu", "PBSopHome")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-8 col-xs-12">
+            <div class="main-slide block-slider nav-change type02">
+                <ul class="biolife-carousel"
+                    data-slick='{"arrows": true, "dots": false, "slidesMargin": 0, "slidesToShow": 1, "infinite": true, "speed": 800}'>
+
+
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        <li>
+                            <div class="slide-contain slider-opt04__layout01">
+                                <div class="media"></div>
+                                <div class="text-content">
+                                    <p class="first-line">Nước trái cây</p>
+                                    <h3 class="second-line" style="font-size: 45px;">Mua 2 tính tiền 1</h3>
+                                    @*<p class="third-line">
+                                            A blend of freshly squeezed green apple & fruits
+                                        </p>*@
+                                    <p class="buttons">
+                                        <a href="#" class="btn btn-bold">Xem chi tiết</a>
+                                        @*<a href="#" class="btn btn-thin">View lookbook</a>*@
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Block 02: Banners-->
+<div class="banner-block sm-margin-bottom-76px xs-margin-top-80px sm-margin-top-60px">
+    <div class="container">
+        <ul class="biolife-carousel nav-center-bold nav-none-on-mobile"
+            data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":30,"slidesToShow":3, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 3}},{"breakpoint":992, "settings":{ "slidesToShow": 2}},{"breakpoint":768, "settings":{ "slidesToShow": 2}}, {"breakpoint":500, "settings":{ "slidesToShow": 1}}]}'>
+
+            <li>
+                <div class="biolife-banner style-03 biolife-banner__style-03">
+                    <div class="banner-contain">
+                        <div class="media">
+                            <a href="#" class="bn-link">
+                                <img src="~/Theme/assets/images/home-04/bn_style03-child.png"
+                                     width="218"
+                                     height="205"
+                                     alt="" />
+                            </a>
+                        </div>
+                        <div class="text-content">
+                            <span class="text1">Rau củ</span>
+                            <b class="text2">Giảm 30%</b>
+                            <span class="text3">sau 20h</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="biolife-banner style-04 biolife-banner__style-04 biolife-banner__style-edit">
+                    <div class="banner-contain">
+                        <div class="media">
+                            <a href="#" class="bn-link">
+                                <img src="~/Theme/assets/images/home-04/bn_style04-child.png"
+                                     width="135"
+                                     height="206"
+                                     alt="" />
+                            </a>
+                        </div>
+                        <div class="text-content">
+                            <span class="text1">Sản phẩm đóng gói</span>
+                            <p class="text2">Giảm<span>25%</span></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="biolife-banner style-03 biolife-banner__style-03" style="background-color: #c4a8d5">
+                    <div class="banner-contain">
+                        <div class="media">
+                            <a href="#" class="bn-link">
+                                @*<img src="~/Theme/assets/images/home-04/bn_style03-child.png"
+                                    width="218"
+                                    height="205"
+                                    alt="" />*@
+                                <img src="~/Theme/assets/images/home-04/bn_style02-child.png" width="231" height="208" alt="">
+                            </a>
+                        </div>
+                        <div class="text-content">
+                            <span class="text1">Nước trái cây</span>
+                            <b class="text2">Giảm 15%</b>
+                            <span class="text3">@*sau 20h*@</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="biolife-banner style-04 biolife-banner__style-04 biolife-banner__style-edit">
+                    <div class="banner-contain">
+                        <div class="media">
+                            <a href="#" class="bn-link">
+                                <img src="~/Theme/assets/images/home-04/bn_style04-child.png"
+                                     width="135"
+                                     height="206"
+                                     alt="" />
+                            </a>
+                        </div>
+                        <div class="text-content">
+                            <span class="text1">Sản phẩm đóng gói</span>
+                            <p class="text2">Giảm<span>25%</span></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="biolife-banner style-03 biolife-banner__style-03">
+                    <div class="banner-contain">
+                        <div class="media">
+                            <a href="#" class="bn-link">
+                                <img src="~/Theme/assets/images/home-04/bn_style03-child.png"
+                                     width="218"
+                                     height="205"
+                                     alt="" />
+                            </a>
+                        </div>
+                        <div class="text-content">
+                            <span class="text1">Rau củ</span>
+                            <b class="text2">Giảm 30%</b>
+                            <span class="text3">sau 20h</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<!--Block 03: Categories-->
+<div class="wrap-category xs-margin-top-80px sm-margin-top-50px">
+    <div class="container">
+        <!-- <div class="biolife-title-box style-02 xs-margin-bottom-33px">
+          <span class="subtitle">Hot Categories 2019</span>
+          <h3 class="main-title">Danh Mục</h3>
+          <p class="desc">
+            Natural food is taken from the world's most modern farms with
+            strict safety cycles
+          </p>
+        </div> -->
+        <!-- <ul
+          class="biolife-carousel nav-center-bold nav-none-on-mobile"
+          data-slick='{"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":30,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 3}},{"breakpoint":992, "settings":{ "slidesToShow": 3}},{"breakpoint":768, "settings":{ "slidesToShow": 2}}, {"breakpoint":500, "settings":{ "slidesToShow": 1}}]}'
+        >
+          <li>
+            <div class="biolife-cat-box-item">
+              <div class="cat-thumb">
+                <a href="#" class="cat-link">
+                  <img
+                    src="assets/images/home-04/cat-thumb01.jpg"
+                    width="277"
+                    height="185"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <a class="cat-info" href="#">
+                <h4 class="cat-name">Fresh Fruit</h4>
+                <span class="cat-number">(20 items)</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="biolife-cat-box-item">
+              <div class="cat-thumb">
+                <a href="#" class="cat-link">
+                  <img
+                    src="assets/images/home-04/cat-thumb02.jpg"
+                    width="277"
+                    height="185"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <a class="cat-info" href="#">
+                <h4 class="cat-name">Drink Fruits</h4>
+                <span class="cat-number">(220 items)</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="biolife-cat-box-item">
+              <div class="cat-thumb">
+                <a href="#" class="cat-link">
+                  <img
+                    src="assets/images/home-04/cat-thumb03.jpg"
+                    width="277"
+                    height="185"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <a class="cat-info" href="#">
+                <h4 class="cat-name">vegetables</h4>
+                <span class="cat-number">(350 items)</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="biolife-cat-box-item">
+              <div class="cat-thumb">
+                <a href="#" class="cat-link">
+                  <img
+                    src="assets/images/home-04/cat-thumb04.jpg"
+                    width="277"
+                    height="185"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <a class="cat-info" href="#">
+                <h4 class="cat-name">Dried Fruits</h4>
+                <span class="cat-number">(520 items)</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="biolife-cat-box-item">
+              <div class="cat-thumb">
+                <a href="#" class="cat-link">
+                  <img
+                    src="assets/images/home-04/cat-thumb01.jpg"
+                    width="277"
+                    height="185"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <a class="cat-info" href="#">
+                <h4 class="cat-name">Fresh Fruit</h4>
+                <span class="cat-number">(20 items)</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="biolife-cat-box-item">
+              <div class="cat-thumb">
+                <a href="#" class="cat-link">
+                  <img
+                    src="assets/images/home-04/cat-thumb02.jpg"
+                    width="277"
+                    height="185"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <a class="cat-info" href="#">
+                <h4 class="cat-name">Drink Fruits</h4>
+                <span class="cat-number">(220 items)</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="biolife-cat-box-item">
+              <div class="cat-thumb">
+                <a href="#" class="cat-link">
+                  <img
+                    src="assets/images/home-04/cat-thumb03.jpg"
+                    width="277"
+                    height="185"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <a class="cat-info" href="#">
+                <h4 class="cat-name">vegetables</h4>
+                <span class="cat-number">(350 items)</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="biolife-cat-box-item">
+              <div class="cat-thumb">
+                <a href="#" class="cat-link">
+                  <img
+                    src="assets/images/home-04/cat-thumb04.jpg"
+                    width="277"
+                    height="185"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <a class="cat-info" href="#">
+                <h4 class="cat-name">Dried Fruits</h4>
+                <span class="cat-number">(520 items)</span>
+              </a>
+            </div>
+          </li>
+        </ul> -->
+
+        <div class="biolife-service type01 biolife-service__type01 sm-margin-top-0 xs-margin-top-65px">
+            <ul class="services-list">
+                <li>
+                    <div class="service-inner">
+                        <span class="number">1</span>
+                        <span class="biolife-icon icon-beer"></span>
+                        <a class="srv-name" href="#">đảm bảo chất lượng</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="service-inner">
+                        <span class="number">2</span>
+                        <span class="biolife-icon icon-schedule"></span>
+                        <a class="srv-name" href="#">giao hàng đúng thời hạn</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="service-inner">
+                        <span class="number">3</span>
+                        <span class="biolife-icon icon-car"></span>
+                        <a class="srv-name" href="#">Miễn Phí Ship Với đơn từ 200k</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--Block 04: Product Tabs-->
+<div class="product-tab z-index-20 sm-margin-top-62px xs-margin-top-80px">
+    <div class="container">
+        <div class="biolife-title-box biolife-title-box__icon-at-top-style hidden-icon-on-mobile">
+            <span class="icon-at-top biolife-icon icon-organic"></span>
+            <!-- <span class="subtitle">All the best item for You</span> -->
+            <h3 class="main-title">Sản Phẩm</h3>
+        </div>
+
+        <div class="biolife-tab biolife-tab-contain">
+            <div class="tab-head tab-head__default">
+                <ul class="tabs">
+                    <li class="tab-element active">
+                        <a href="#tab02_1st" class="tab-link">Sản Phẩm Mới</a>
+                    </li>
+                    <li class="tab-element">
+                        <a href="#tab02_2nd" class="tab-link">Được Mua Nhiều</a>
+                    </li>
+                    <li class="tab-element">
+                        <a href="#tab02_3rd" class="tab-link">Đang Giảm Giá</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div id="tab02_1st" class="tab-contain active">
+                    <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain"
+                        data-slick='{"rows":2 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20}},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":15}}]}'>
+
+                        @foreach (var item in ViewBag.NewProduct)
+                        {
+                            <li class="product-item">
+                                <div class="contain-product layout-default">
+                                    <div class="product-thumb">
+                                        <a href="@Url.Action("ProductDetails","PBSopHome", new { id = @item.ID })" class="link-to-product">
+                                            <img src="~/Theme/assets/images/products/@item.Img"
+                                                 alt="Vegetables"
+                                                 width="270"
+                                                 height="270"
+                                                 class="product-thumnail" />
+                                        </a>
+                                        <div class="labels">
+                                            <span class="sale-label">-50%</span>
+                                        </div>
+                                        @*<a class="lookup btn_call_quickview" href="@Url.Action("PartialProductDetails", "PBSopHome", new { ms = @item.ID })">
+                                                <i class="biolife-icon icon-search"></i>
+                                            </a>*@
+                                    </div>
+                                    <div class="info">
+                                        <b class="categories">@item.NameType</b>
+                                        <h4 class="product-title">
+                                            <a href="@Url.Action("ProductDetails","PBSopHome", new { id = @item.ID })" class="pr-name">@item.Name</a>
+                                        </h4>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="price-amount">
+                                                    <span class="currencySymbol">₫</span>85.00
+                                                </span>
+                                            </ins>
+                                            <del>
+                                                <span class="price-amount">
+                                                    <span class="currencySymbol">₫</span>95.00
+                                                </span>
+                                            </del>
+                                        </div>
+                                        <div class="slide-down-box">
+                                            @*<p class="message">
+                                                    All products are carefully selected to ensure food
+                                                    safety.
+                                                </p>*@
+
+                                            <div id="fb-root"></div>
+                                            <script>
+                                                (function (d, s, id) {
+                                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                                    if (d.getElementById(id)) return;
+                                                    js = d.createElement(s); js.id = id;
+                                                    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+                                                    fjs.parentNode.insertBefore(js, fjs);
+                                                }(document, 'script', 'facebook-jssdk'));</script>
+
+                                            <div class="fb-share-button"
+                                                 data-href="https://www.your-domain.com/your-page.html">
+                                            </div>
+                                            <div class="buttons">
+                                                <a href="#" class="btn wishlist-btn">
+                                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="#" class="btn add-to-cart-btn">
+                                                    <i class="fa fa-cart-arrow-down"
+                                                       aria-hidden="true"></i>Thêm Vào Giỏ Hàng
+                                                </a>
+                                                <a href="#" class="btn compare-btn">
+                                                    <i class="fa fa-random" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div id="tab02_2nd" class="tab-contain">
+                    <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain"
+                        data-slick='{"rows":2 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20}},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":15}}]}'>
+
+                        @foreach (var item in ViewBag.BALProduct)
+                        {
+                            <li class="product-item">
+                                <div class="contain-product layout-default">
+                                    <div class="product-thumb">
+                                        <a href="@Url.Action("ProductDetails","PBSopHome", new { id = @item.ID })" class="link-to-product">
+                                            <img src="~/Theme/assets/images/products/@item.Img"
+                                                 alt="Vegetables"
+                                                 width="270"
+                                                 height="270"
+                                                 class="product-thumnail" />
+                                        </a>
+                                        <div class="labels">
+                                            <span class="sale-label">-50%</span>
+                                        </div>
+                                        @*<a class="lookup btn_call_quickview" href="#">
+                                                <i class="biolife-icon icon-search"></i>
+                                            </a>*@
+                                    </div>
+                                    <div class="info">
+                                        <b class="categories">@item.NameType</b>
+                                        <h4 class="product-title">
+                                            <a href="@Url.Action("ProductDetails","PBSopHome", new { id = @item.ID })" class="pr-name">@item.Name</a>
+                                        </h4>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="price-amount">
+                                                    <span class="currencySymbol">₫</span>85.00
+                                                </span>
+                                            </ins>
+                                            <del>
+                                                <span class="price-amount">
+                                                    <span class="currencySymbol">₫</span>95.00
+                                                </span>
+                                            </del>
+                                        </div>
+                                        <div class="slide-down-box">
+                                            @*<p class="message">
+                                                    All products are carefully selected to ensure food
+                                                    safety.
+                                                </p>*@
+                                            <div class="buttons">
+                                                <a href="#" class="btn wishlist-btn">
+                                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="#" class="btn add-to-cart-btn">
+                                                    <i class="fa fa-cart-arrow-down"
+                                                       aria-hidden="true"></i>Thêm Vào Giỏ Hàng
+                                                </a>
+                                                <a href="#" class="btn compare-btn">
+                                                    <i class="fa fa-random" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div id="tab02_3rd" class="tab-contain">
+                    <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain"
+                        data-slick='{"rows":2 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20}},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":15}}]}'>
+                        @foreach (var item in ViewBag.OSProduct)
+                        {
+                            <li class="product-item">
+                                <div class="contain-product layout-default">
+                                    <div class="product-thumb">
+                                        <a href="@Url.Action("ProductDetails","PBSopHome", new { id = @item.ID })" class="link-to-product">
+                                            <img src="~/Theme/assets/images/products/@item.Img"
+                                                 alt="Vegetables"
+                                                 width="270"
+                                                 height="270"
+                                                 class="product-thumnail" />
+                                        </a>
+                                        <div class="labels">
+                                            <span class="sale-label">-50%</span>
+                                        </div>
+                                        @*<a class="lookup btn_call_quickview" href="#">
+                                                <i class="biolife-icon icon-search"></i>
+                                            </a>*@
+                                    </div>
+                                    <div class="info">
+                                        <b class="categories">@item.NameType</b>
+                                        <h4 class="product-title">
+                                            <a href="@Url.Action("ProductDetails","PBSopHome", new { id = @item.ID })" class="pr-name">@item.Name</a>
+                                        </h4>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="price-amount">
+                                                    <span class="currencySymbol">₫</span>85.00
+                                                </span>
+                                            </ins>
+                                            <del>
+                                                <span class="price-amount">
+                                                    <span class="currencySymbol">₫</span>95.00
+                                                </span>
+                                            </del>
+                                        </div>
+                                        <div class="slide-down-box">
+                                            @*<p class="message">
+                                                    All products are carefully selected to ensure food
+                                                    safety.
+                                                </p>*@
+                                            <div class="buttons">
+                                                <a href="#" class="btn wishlist-btn">
+                                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="#" class="btn add-to-cart-btn">
+                                                    <i class="fa fa-cart-arrow-down"
+                                                       aria-hidden="true"></i>Thêm Vào Giỏ Hàng
+                                                </a>
+                                                <a href="#" class="btn compare-btn">
+                                                    <i class="fa fa-random" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Block 05: Banner Promotion-->
+<div class="banner-promotion-04 xs-margin-top-50px sm-margin-top-40px">
+    <div class="biolife-banner promotion4 biolife-banner__promotion4 v2">
+        <div class="container">
+            <div class="banner-contain">
+                <div class="media">
+                    <div class="img-moving position-1">
+                        <a href="#" class="banner-link">
+                            <img src="~/Theme/assets/images/home-04/Banner30.png"
+                                 width="780"
+                                 height="450"
+                                 alt="img msv" />
+                        </a>
+                    </div>
+                    <div class="img-moving position-2">
+                        <img src="~/Theme/assets/images/home-04/bn_promotion-child02-2.png"
+                             width="149"
+                             height="139"
+                             alt="img msv" />
+                    </div>
+                </div>
+                <div class="text-content">
+                    <span class="sub-line">Ưu Đại Đặc Biệt!</span>
+                    <b class="first-line">Giảm giá đặc biệt<br />Cho Trái cây</b>
+                    <div class="biolife-countdown"
+                         data-datetime="2020-01-18 00:00 +00:00">
+                        <span class="days">
+                            <span class="number" id="days">00</span><span class="text">days</span>
+                        </span><span class="hours">
+                            <span class="number" id="hours">00</span><span class="text">Hours</span>
+                        </span><span class="mins">
+                            <span class="number" id="minutes">00</span><span class="text">Mins</span>
+                        </span><span class="secs">
+                            <span class="number" id="seconds">00</span><span class="text">Secs</span>
+                        </span>
+                    </div>
+                    <p class="buttons">
+                        <a href="#" class="btn btn-bold">Xem Ưu Đãi</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Block 06: Advance-Box-->
+<div class="Product-box sm-margin-top-96px xs-margin-top-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-5 col-sm-6">
+                <div class="advance-product-box">
+                    <div class="biolife-title-box bold-style biolife-title-box__bold-style">
+                        <h3 class="title">Ưu Đãi Trong Ngày</h3>
+                    </div>
+                    <ul class="products biolife-carousel nav-top-right nav-none-on-mobile"
+                        data-slick='{"arrows":true, "dots":false, "infinite":false, "speed":400, "slidesMargin":30, "slidesToShow":1}'>
+                        @foreach (var item in ViewBag.SaleOnDay)
+                        {
+                            <li class="product-item">
+                                <div class="contain-product deal-layout contain-product__deal-layout">
+                                    <div class="product-thumb">
+                                        <a href="#" class="link-to-product">
+                                            <img src="~/Theme/assets/images/products/@item.Img"
+                                                 alt="dd"
+                                                 width="330"
+                                                 height="330"
+                                                 class="product-thumnail" />
+                                        </a>
+                                        <div class="labels">
+                                            <span class="sale-label">-50%</span>
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="biolife-countdown"
+                                             data-datetime="2020-01-18 00:00 +00:00">
+                                            <span class="days">
+                                                <span class="number" id="days">00</span><span class="text">days</span>
+                                            </span><span class="hours">
+                                                <span class="number" id="hours">00</span><span class="text">Hours</span>
+                                            </span><span class="mins">
+                                                <span class="number" id="minutes">00</span><span class="text">Mins</span>
+                                            </span><span class="secs">
+                                                <span class="number" id="seconds">00</span><span class="text">Secs</span>
+                                            </span>
+                                        </div>
+                                        <b class="categories">Fresh Fruit</b>
+                                        <h4 class="product-title">
+                                            <a href="#" class="pr-name">National Fresh Fruit</a>
+                                        </h4>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="price-amount">
+                                                    <span class="currencySymbol">₫</span>85.00
+                                                </span>
+                                            </ins>
+                                            <del>
+                                                <span class="price-amount">
+                                                    <span class="currencySymbol">₫</span>95.00
+                                                </span>
+                                            </del>
+                                        </div>
+                                        <div class="slide-down-box">
+                                            <p class="message">
+                                                All products are carefully selected to ensure food
+                                                safety.
+                                            </p>
+                                            <div class="buttons">
+                                                <a href="#" class="btn wishlist-btn">
+                                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                                </a>
+                                                <a href="#" class="btn add-to-cart-btn">add to cart</a>
+                                                <a href="#" class="btn compare-btn">
+                                                    <i class="fa fa-random" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <div class="advance-product-box">
+                    <div class="biolife-title-box bold-style biolife-title-box__bold-style">
+                        <h3 class="title">Top Đánh Giá</h3>
+                    </div>
+                    <ul class="products biolife-carousel eq-height-contain nav-center-03 nav-none-on-mobile row-space-29px"
+                        data-slick='{"rows":2,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":30,"slidesToShow":2,"responsive":[{"breakpoint":1200,"settings":{ "rows":2, "slidesToShow": 2}},{"breakpoint":992, "settings":{ "rows":2, "slidesToShow": 1}},{"breakpoint":768, "settings":{ "rows":2, "slidesToShow": 2}},{"breakpoint":500, "settings":{ "rows":2, "slidesToShow": 1}}]}'>
+
+                        @foreach (var item in ViewBag.OSProduct)
+                        {
+                            <li class="product-item">
+                                <div class="contain-product right-info-layout contain-product__right-info-layout">
+                                    <div class="product-thumb">
+                                        <a href="#" class="link-to-product">
+                                            <img src="~/Theme/assets/images/products/@item.Img"
+                                                 alt="dd"
+                                                 width="270"
+                                                 height="270"
+                                                 class="product-thumnail" />
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <b class="categories">@item.NameType</b>
+                                        <h4 class="product-title">
+                                            <a href="#" class="pr-name">@item.Name</a>
+                                        </h4>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="price-amount">
+                                                    <span class="currencySymbol">₫</span>85.00
+                                                </span>
+                                            </ins>
+                                            <del>
+                                                <span class="price-amount">
+                                                    <span class="currencySymbol">₫</span>95.00
+                                                </span>
+                                            </del>
+                                        </div>
+                                        <div class="rating">
+                                            <p class="star-rating">
+                                                <span class="width-80percent"></span>
+                                            </p>
+                                            <span class="review-count">(@item.Rated Reviews)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                    <div class="biolife-banner style-01 biolife-banner__style-01 xs-margin-top-80px-im sm-margin-top-30px-im">
+                        <div class="banner-contain">
+                            <a href="#" class="bn-link"></a>
+                            <div class="text-content">
+                                <span class="first-line">Mới</span>
+                                <b class="second-line">Tươi</b>
+                                <i class="third-line">Sạch</i>
+                                <span class="fourth-line">Chất Lượng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Block 08: Products-->
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-xs-12">
+      <div class="advance-product-box">
+        <div
+          class="biolife-title-box bold-style biolife-title-box__bold-style mobile-tiny sm-margin-bottom-36px"
+        >
+          <h3 class="title">Top Rated Products</h3>
+        </div>
+        <ul
+          class="products-list vertical-layout products-list__vertical-layout"
+        >
+          <li class="product-item">
+            <div
+              class="contain-product contain-product__right-info-layout2"
+            >
+              <div class="product-thumb">
+                <a href="#" class="link-to-product">
+                  <img
+                    src="assets/images/home-04/pr-100-01.jpg"
+                    alt="Vegetables"
+                    width="100"
+                    height="100"
+                    class="product-thumnail"
+                  />
+                </a>
+              </div>
+              <div class="info">
+                <h4 class="product-title">
+                  <a href="#" class="pr-name">Pumpkins Fairytale</a>
+                </h4>
+                <div class="price">
+                  <ins
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>85.00</span
+                    ></ins
+                  >
+                  <del
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>95.00</span
+                    ></del
+                  >
+                </div>
+                <div class="rating">
+                  <p class="star-rating">
+                    <span class="width-80percent"></span>
+                  </p>
+                  <span class="review-count">(05 Reviews)</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="product-item">
+            <div
+              class="contain-product contain-product__right-info-layout2"
+            >
+              <div class="product-thumb">
+                <a href="#" class="link-to-product">
+                  <img
+                    src="assets/images/home-04/pr-100-02.jpg"
+                    alt="Vegetables"
+                    width="100"
+                    height="100"
+                    class="product-thumnail"
+                  />
+                </a>
+              </div>
+              <div class="info">
+                <h4 class="product-title">
+                  <a href="#" class="pr-name">Pumpkins Fairytale</a>
+                </h4>
+                <div class="price">
+                  <ins
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>85.00</span
+                    ></ins
+                  >
+                  <del
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>95.00</span
+                    ></del
+                  >
+                </div>
+                <div class="rating">
+                  <p class="star-rating">
+                    <span class="width-80percent"></span>
+                  </p>
+                  <span class="review-count">(05 Reviews)</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="product-item">
+            <div
+              class="contain-product contain-product__right-info-layout2"
+            >
+              <div class="product-thumb">
+                <a href="#" class="link-to-product">
+                  <img
+                    src="assets/images/home-04/pr-100-03.jpg"
+                    alt="Vegetables"
+                    width="100"
+                    height="100"
+                    class="product-thumnail"
+                  />
+                </a>
+              </div>
+              <div class="info">
+                <h4 class="product-title">
+                  <a href="#" class="pr-name">Pumpkins Fairytale</a>
+                </h4>
+                <div class="price">
+                  <ins
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>85.00</span
+                    ></ins
+                  >
+                  <del
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>95.00</span
+                    ></del
+                  >
+                </div>
+                <div class="rating">
+                  <p class="star-rating">
+                    <span class="width-80percent"></span>
+                  </p>
+                  <span class="review-count">(05 Reviews)</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-xs-12">
+      <div class="advance-product-box">
+        <div
+          class="biolife-title-box bold-style biolife-title-box__bold-style mobile-tiny"
+        >
+          <h3 class="title">Featured Products</h3>
+        </div>
+        <ul
+          class="products-list vertical-layout products-list__vertical-layout"
+        >
+          <li class="product-item">
+            <div
+              class="contain-product contain-product__right-info-layout2"
+            >
+              <div class="product-thumb">
+                <a href="#" class="link-to-product">
+                  <img
+                    src="assets/images/home-04/pr-100-04.jpg"
+                    alt="Vegetables"
+                    width="100"
+                    height="100"
+                    class="product-thumnail"
+                  />
+                </a>
+              </div>
+              <div class="info">
+                <h4 class="product-title">
+                  <a href="#" class="pr-name">Pumpkins Fairytale</a>
+                </h4>
+                <div class="price">
+                  <ins
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>85.00</span
+                    ></ins
+                  >
+                  <del
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>95.00</span
+                    ></del
+                  >
+                </div>
+                <div class="rating">
+                  <p class="star-rating">
+                    <span class="width-80percent"></span>
+                  </p>
+                  <span class="review-count">(05 Reviews)</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="product-item">
+            <div
+              class="contain-product contain-product__right-info-layout2"
+            >
+              <div class="product-thumb">
+                <a href="#" class="link-to-product">
+                  <img
+                    src="assets/images/home-04/pr-100-05.jpg"
+                    alt="Vegetables"
+                    width="100"
+                    height="100"
+                    class="product-thumnail"
+                  />
+                </a>
+              </div>
+              <div class="info">
+                <h4 class="product-title">
+                  <a href="#" class="pr-name">Pumpkins Fairytale</a>
+                </h4>
+                <div class="price">
+                  <ins
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>85.00</span
+                    ></ins
+                  >
+                  <del
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>95.00</span
+                    ></del
+                  >
+                </div>
+                <div class="rating">
+                  <p class="star-rating">
+                    <span class="width-80percent"></span>
+                  </p>
+                  <span class="review-count">(05 Reviews)</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="product-item">
+            <div
+              class="contain-product contain-product__right-info-layout2"
+            >
+              <div class="product-thumb">
+                <a href="#" class="link-to-product">
+                  <img
+                    src="assets/images/home-04/pr-100-06.jpg"
+                    alt="Vegetables"
+                    width="100"
+                    height="100"
+                    class="product-thumnail"
+                  />
+                </a>
+              </div>
+              <div class="info">
+                <h4 class="product-title">
+                  <a href="#" class="pr-name">Pumpkins Fairytale</a>
+                </h4>
+                <div class="price">
+                  <ins
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>85.00</span
+                    ></ins
+                  >
+                  <del
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>95.00</span
+                    ></del
+                  >
+                </div>
+                <div class="rating">
+                  <p class="star-rating">
+                    <span class="width-80percent"></span>
+                  </p>
+                  <span class="review-count">(05 Reviews)</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="col-sm-6 col-md-4 col-xs-12 sm-margin-top-54px md-margin-top-0"
+    >
+      <div class="advance-product-box">
+        <div
+          class="biolife-title-box bold-style biolife-title-box__bold-style mobile-tiny"
+        >
+          <h3 class="title">Bestseller Products</h3>
+        </div>
+        <ul
+          class="products-list vertical-layout products-list__vertical-layout"
+        >
+          <li class="product-item">
+            <div
+              class="contain-product contain-product__right-info-layout2"
+            >
+              <div class="product-thumb">
+                <a href="#" class="link-to-product">
+                  <img
+                    src="assets/images/home-04/pr-100-07.jpg"
+                    alt="Vegetables"
+                    width="100"
+                    height="100"
+                    class="product-thumnail"
+                  />
+                </a>
+              </div>
+              <div class="info">
+                <h4 class="product-title">
+                  <a href="#" class="pr-name">Pumpkins Fairytale</a>
+                </h4>
+                <div class="price">
+                  <ins
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>85.00</span
+                    ></ins
+                  >
+                  <del
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>95.00</span
+                    ></del
+                  >
+                </div>
+                <div class="rating">
+                  <p class="star-rating">
+                    <span class="width-80percent"></span>
+                  </p>
+                  <span class="review-count">(05 Reviews)</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="product-item">
+            <div
+              class="contain-product contain-product__right-info-layout2"
+            >
+              <div class="product-thumb">
+                <a href="#" class="link-to-product">
+                  <img
+                    src="assets/images/home-04/pr-100-08.jpg"
+                    alt="Vegetables"
+                    width="100"
+                    height="100"
+                    class="product-thumnail"
+                  />
+                </a>
+              </div>
+              <div class="info">
+                <h4 class="product-title">
+                  <a href="#" class="pr-name">Pumpkins Fairytale</a>
+                </h4>
+                <div class="price">
+                  <ins
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>85.00</span
+                    ></ins
+                  >
+                  <del
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>95.00</span
+                    ></del
+                  >
+                </div>
+                <div class="rating">
+                  <p class="star-rating">
+                    <span class="width-80percent"></span>
+                  </p>
+                  <span class="review-count">(05 Reviews)</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="product-item">
+            <div
+              class="contain-product contain-product__right-info-layout2"
+            >
+              <div class="product-thumb">
+                <a href="#" class="link-to-product">
+                  <img
+                    src="assets/images/home-04/pr-100-09.jpg"
+                    alt="Vegetables"
+                    width="100"
+                    height="100"
+                    class="product-thumnail"
+                  />
+                </a>
+              </div>
+              <div class="info">
+                <h4 class="product-title">
+                  <a href="#" class="pr-name">Pumpkins Fairytale</a>
+                </h4>
+                <div class="price">
+                  <ins
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>85.00</span
+                    ></ins
+                  >
+                  <del
+                    ><span class="price-amount"
+                      ><span class="currencySymbol">₫</span>95.00</span
+                    ></del
+                  >
+                </div>
+                <div class="rating">
+                  <p class="star-rating">
+                    <span class="width-80percent"></span>
+                  </p>
+                  <span class="review-count">(05 Reviews)</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!--Block 05: Banner Promotion 02-->
+<!-- <div class="banner-promotion-02 z-index-20">
+  <div class="biolife-banner promotion2 biolife-banner__promotion2">
+    <div class="banner-contain">
+      <div class="container">
+        <div class="media"></div>
+        <div class="text-content">
+          <b class="first-line">Food Heaven Made</b>
+          <span class="second-line"
+            >Easy <i>Healthy, Happy Life</i></span
+          >
+          <p class="third-line">
+            Food Heaven Made Easy sounds like the name of an amazingly
+            delicious food delivery service, but don't be fooled. The
+            blog is actually a compilation of recipes, cooking videos,
+            and nutrition tips.
+          </p>
+          <p class="buttons">
+            <a href="#" class="btn btn-bold">Read More</a>
+            <a href="#" class="btn btn-thin">View Menu Now</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!--Block 09: Blog Posts-->
+<div class="blog-posts xs-margin-top-80px sm-margin-top-61px sm-padding-top-54px xs-padding-bottom-50px">
+    <div class="container">
+        <div class="biolife-title-box link-all">
+            <h3 class="main-title">Bài Viết Mới</h3>
+            <a href="#" class="blog-link">Tất Cả Bài Viết</a>
+        </div>
+        <ul class="biolife-carousel nav-center xs-margin-top-33px nav-none-on-mobile"
+            data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":30,"slidesToShow":3, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 3}},{"breakpoint":992, "settings":{ "slidesToShow": 2}},{"breakpoint":768, "settings":{ "slidesToShow": 2}},{"breakpoint":600, "settings":{ "slidesToShow": 1}}]}'>
+            <li>
+                <div class="post-item style-bottom-info layout-02">
+                    <div class="thumbnail">
+                        <a href="#" class="link-to-post">
+                            <img src="~/Theme/assets/images/Blog/Blog_BiDo.png"
+                                 width="370"
+                                 height="270"
+                                 alt="" />
+                        </a>
+                        <div class="post-date">
+                            <span class="date">25</span>
+                            <span class="month">10</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h4 class="post-name">
+                            <a href="#" class="linktopost">Bí đỏ non là gì? Các món ngon dễ làm từ bí đỏ non</a>
+                        </h4>
+                        <div class="post-meta">
+                            <a href="#" class="post-meta__item author">
+                                <i class="fa fa-user"></i>
+                                <span>Admin</span>
+                            </a>
+                            <a href="#" class="post-meta__item btn liked-count">
+                                2<span class="biolife-icon icon-comment"></span>
+                            </a>
+                            <a href="#" class="post-meta__item btn comment-count">
+                                6<span class="biolife-icon icon-like"></span>
+                            </a>
+                            <div class="post-meta__item post-meta__item-social-box">
+                                <span class="tbn">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                </span>
+                                <div class="inner-content">
+                                    <ul class="socials">
+                                        <li>
+                                            <a href="#" title="twitter" class="socail-btn">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="facebook" class="socail-btn">
+                                                <i class="fa fa-facebook"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="pinterest" class="socail-btn">
+                                                <i class="fa fa-pinterest"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="youtube" class="socail-btn">
+                                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="instagram" class="socail-btn">
+                                                <i class="fa fa-instagram"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="excerpt">
+                            Bí đỏ non là một thực phẩm giàu dinh dưỡng, có thể chế biến thành nhiều món ăn ngon khác nhau. Cùng khám phá thêm thông tin về loại bí này nhé!
+                        </p>
+                        <div class="group-buttons">
+                            <a href="#" class="btn readmore">Xem Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="post-item style-bottom-info layout-02">
+                    <div class="thumbnail">
+                        <a href="#" class="link-to-post">
+                            <img src="~/Theme/assets/images/Blog/Blog_Hong.png"
+                                 width="370"
+                                 height="270"
+                                 alt="" />
+                        </a>
+                        <div class="post-date">
+                            <span class="date">26</span>
+                            <span class="month">10</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h4 class="post-name">
+                            <a href="#" class="linktopost">Quả hồng có màu sắc và hương vị như socola, có giá đến nửa triệu 1 kg</a>
+                        </h4>
+                        <div class="post-meta">
+                            <a href="#" class="post-meta__item author">
+                                <i class="fa fa-user"></i>
+                                <span>Admin</span>
+                            </a>
+                            <a href="#" class="post-meta__item btn liked-count">
+                                2<span class="biolife-icon icon-comment"></span>
+                            </a>
+                            <a href="#" class="post-meta__item btn comment-count">
+                                6<span class="biolife-icon icon-like"></span>
+                            </a>
+                            <div class="post-meta__item post-meta__item-social-box">
+                                <span class="tbn">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                </span>
+                                <div class="inner-content">
+                                    <ul class="socials">
+                                        <li>
+                                            <a href="#" title="twitter" class="socail-btn">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="facebook" class="socail-btn">
+                                                <i class="fa fa-facebook"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="pinterest" class="socail-btn">
+                                                <i class="fa fa-pinterest"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="youtube" class="socail-btn">
+                                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="instagram" class="socail-btn">
+                                                <i class="fa fa-instagram"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="excerpt">
+                            Quả hồng socola là một loại trái cây mới lạ được nhiều người ưa chuộng. Cùng Bách hóa XANH tìm hiểu về quả hồng socola có giá đến nửa triệu 1kg này nhé.
+                        </p>
+                        <div class="group-buttons">
+                            <a href="#" class="btn readmore">Xem Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="post-item style-bottom-info layout-02">
+                    <div class="thumbnail">
+                        <a href="#" class="link-to-post">
+                            <img src="~/Theme/assets/images/Blog/Blog_SauRieng.png"
+                                 width="370"
+                                 height="270"
+                                 alt="" />
+                        </a>
+
+                        <div class="post-date">
+                            <span class="date">5</span>
+                            <span class="month">11</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h4 class="post-name">
+                            <a href="#" class="linktopost">Biến tấu sầu riêng sượng thành 4 món ăn thơm ngon khó cưỡng</a>
+                        </h4>
+                        <div class="post-meta">
+                            <a href="#" class="post-meta__item author">
+                                <i class="fa fa-user"></i>
+                                <span>Admin</span>
+                            </a>
+                            <a href="#" class="post-meta__item btn liked-count">
+                                2<span class="biolife-icon icon-comment"></span>
+                            </a>
+                            <a href="#" class="post-meta__item btn comment-count">
+                                6<span class="biolife-icon icon-like"></span>
+                            </a>
+                            <div class="post-meta__item post-meta__item-social-box">
+                                <span class="tbn">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                </span>
+                                <div class="inner-content">
+                                    <ul class="socials">
+                                        <li>
+                                            <a href="#" title="twitter" class="socail-btn">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="facebook" class="socail-btn">
+                                                <i class="fa fa-facebook"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="pinterest" class="socail-btn">
+                                                <i class="fa fa-pinterest"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="youtube" class="socail-btn">
+                                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="instagram" class="socail-btn">
+                                                <i class="fa fa-instagram"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="excerpt">
+                            Sầu riêng sượng có thể biến tấu thành nhiều món ăn ngon, hấp dẫn. Tham khảo ngay 4 món ăn thơm ngon khó cưỡng từ sầu riêng sượng ngay sau đây nhé!
+                        </p>
+                        <div class="group-buttons">
+                            <a href="#" class="btn readmore">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="post-item style-bottom-info layout-02">
+                    <div class="thumbnail">
+                        <a href="#" class="link-to-post">
+                            <img src="~/Theme/assets/images/Blog/Blog_BiDo.png"
+                                 width="370"
+                                 height="270"
+                                 alt="" />
+                        </a>
+                        <div class="post-date">
+                            <span class="date">25</span>
+                            <span class="month">10</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h4 class="post-name">
+                            <a href="#" class="linktopost">Bí đỏ non là gì? Các món ngon dễ làm từ bí đỏ non</a>
+                        </h4>
+                        <div class="post-meta">
+                            <a href="#" class="post-meta__item author">
+                                <i class="fa fa-user"></i>
+                                <span>Admin</span>
+                            </a>
+                            <a href="#" class="post-meta__item btn liked-count">
+                                2<span class="biolife-icon icon-comment"></span>
+                            </a>
+                            <a href="#" class="post-meta__item btn comment-count">
+                                6<span class="biolife-icon icon-like"></span>
+                            </a>
+                            <div class="post-meta__item post-meta__item-social-box">
+                                <span class="tbn">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                </span>
+                                <div class="inner-content">
+                                    <ul class="socials">
+                                        <li>
+                                            <a href="#" title="twitter" class="socail-btn">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="facebook" class="socail-btn">
+                                                <i class="fa fa-facebook"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="pinterest" class="socail-btn">
+                                                <i class="fa fa-pinterest"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="youtube" class="socail-btn">
+                                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="instagram" class="socail-btn">
+                                                <i class="fa fa-instagram"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="excerpt">
+                            Bí đỏ non là một thực phẩm giàu dinh dưỡng, có thể chế biến thành nhiều món ăn ngon khác nhau. Cùng khám phá thêm thông tin về loại bí này nhé!
+                        </p>
+                        <div class="group-buttons">
+                            <a href="#" class="btn readmore">Xem Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="post-item style-bottom-info layout-02">
+                    <div class="thumbnail">
+                        <a href="#" class="link-to-post">
+                            <img src="~/Theme/assets/images/Blog/Blog_Hong.png"
+                                 width="370"
+                                 height="270"
+                                 alt="" />
+                        </a>
+                        <div class="post-date">
+                            <span class="date">26</span>
+                            <span class="month">10</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h4 class="post-name">
+                            <a href="#" class="linktopost">Quả hồng có màu sắc và hương vị như socola, có giá đến nửa triệu 1 kg</a>
+                        </h4>
+                        <div class="post-meta">
+                            <a href="#" class="post-meta__item author">
+                                <i class="fa fa-user"></i>
+                                <span>Admin</span>
+                            </a>
+                            <a href="#" class="post-meta__item btn liked-count">
+                                2<span class="biolife-icon icon-comment"></span>
+                            </a>
+                            <a href="#" class="post-meta__item btn comment-count">
+                                6<span class="biolife-icon icon-like"></span>
+                            </a>
+                            <div class="post-meta__item post-meta__item-social-box">
+                                <span class="tbn">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                </span>
+                                <div class="inner-content">
+                                    <ul class="socials">
+                                        <li>
+                                            <a href="#" title="twitter" class="socail-btn">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="facebook" class="socail-btn">
+                                                <i class="fa fa-facebook"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="pinterest" class="socail-btn">
+                                                <i class="fa fa-pinterest"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="youtube" class="socail-btn">
+                                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="instagram" class="socail-btn">
+                                                <i class="fa fa-instagram"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="excerpt">
+                            Quả hồng socola là một loại trái cây mới lạ được nhiều người ưa chuộng. Cùng Bách hóa XANH tìm hiểu về quả hồng socola có giá đến nửa triệu 1kg này nhé.
+                        </p>
+                        <div class="group-buttons">
+                            <a href="#" class="btn readmore">Xem Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="post-item style-bottom-info layout-02">
+                    <div class="thumbnail">
+                        <a href="#" class="link-to-post">
+                            <img src="~/Theme/assets/images/Blog/Blog_SauRieng.png"
+                                 width="370"
+                                 height="270"
+                                 alt="" />
+                        </a>
+
+                        <div class="post-date">
+                            <span class="date">5</span>
+                            <span class="month">11</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h4 class="post-name">
+                            <a href="#" class="linktopost">Biến tấu sầu riêng sượng thành 4 món ăn thơm ngon khó cưỡng</a>
+                        </h4>
+                        <div class="post-meta">
+                            <a href="#" class="post-meta__item author">
+                                <i class="fa fa-user"></i>
+                                <span>Admin</span>
+                            </a>
+                            <a href="#" class="post-meta__item btn liked-count">
+                                2<span class="biolife-icon icon-comment"></span>
+                            </a>
+                            <a href="#" class="post-meta__item btn comment-count">
+                                6<span class="biolife-icon icon-like"></span>
+                            </a>
+                            <div class="post-meta__item post-meta__item-social-box">
+                                <span class="tbn">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                </span>
+                                <div class="inner-content">
+                                    <ul class="socials">
+                                        <li>
+                                            <a href="#" title="twitter" class="socail-btn">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="facebook" class="socail-btn">
+                                                <i class="fa fa-facebook"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="pinterest" class="socail-btn">
+                                                <i class="fa fa-pinterest"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="youtube" class="socail-btn">
+                                                <i class="fa fa-youtube" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="instagram" class="socail-btn">
+                                                <i class="fa fa-instagram"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="excerpt">
+                            Sầu riêng sượng có thể biến tấu thành nhiều món ăn ngon, hấp dẫn. Tham khảo ngay 4 món ăn thơm ngon khó cưỡng từ sầu riêng sượng ngay sau đây nhé!
+                        </p>
+                        <div class="group-buttons">
+                            <a href="#" class="btn readmore">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--Block 07: Brands-->
+@*<div class="brand-slide background-fafafa xs-margin-top-50px sm-margin-top-80px sm-margin-bottom-73px">
+        <div class="container">
+            <ul class="biolife-carousel nav-center-bold nav-none-on-mobile"
+                data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":30,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3}},{"breakpoint":768, "settings":{ "slidesToShow": 2}},{"breakpoint": 550, "settings":{ "slidesToShow": 1}}]}'>
+                <li>
+                    <div class="biolife-brd-container">
+                        <a href="#" class="link">
+                            <figure>
+                                <img src="assets/images/home-03/brd-01.jpg"
+                                     width="214"
+                                     height="163"
+                                     alt="" />
+                            </figure>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="biolife-brd-container">
+                        <a href="#" class="link">
+                            <figure>
+                                <img src="assets/images/home-03/brd-02.jpg"
+                                     width="214"
+                                     height="163"
+                                     alt="" />
+                            </figure>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="biolife-brd-container">
+                        <a href="#" class="link">
+                            <figure>
+                                <img src="assets/images/home-03/brd-03.jpg"
+                                     width="153"
+                                     height="163"
+                                     alt="" />
+                            </figure>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="biolife-brd-container">
+                        <a href="#" class="link">
+                            <figure>
+                                <img src="assets/images/home-03/brd-04.jpg"
+                                     width="224"
+                                     height="163"
+                                     alt="" />
+                            </figure>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="biolife-brd-container">
+                        <a href="#" class="link">
+                            <figure>
+                                <img src="assets/images/home-03/brd-01.jpg"
+                                     width="214"
+                                     height="163"
+                                     alt="" />
+                            </figure>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="biolife-brd-container">
+                        <a href="#" class="link">
+                            <figure>
+                                <img src="assets/images/home-03/brd-02.jpg"
+                                     width="214"
+                                     height="163"
+                                     alt="" />
+                            </figure>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="biolife-brd-container">
+                        <a href="#" class="link">
+                            <figure>
+                                <img src="assets/images/home-03/brd-03.jpg"
+                                     width="153"
+                                     height="163"
+                                     alt="" />
+                            </figure>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="biolife-brd-container">
+                        <a href="#" class="link">
+                            <figure>
+                                <img src="assets/images/home-03/brd-04.jpg"
+                                     width="224"
+                                     height="163"
+                                     alt="" />
+                            </figure>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>*@
+

@@ -1,0 +1,15 @@
+﻿@using (Html.BeginForm("Shop", "PBSopHome", FormMethod.Get, new { @class = "form-search" }))
+{
+
+    <a href="#" class="btn-close">
+        <span class="biolife-icon icon-close-menu"></span>
+    </a>
+    <input type="text"
+           name="searchString"
+           class="input-text"
+           value="@ViewBag.Keyword"
+           placeholder="Nhập Tên Sản Phẩm..." />
+    @Html.DropDownList("haha", null, "Tất Cả", htmlAttributes: new { @class = "form-control"})
+    <button type="submit" class="btn-submit">Tìm</button>
+
+}

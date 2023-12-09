@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<form class="login">
+
+
+
+        <input type="text"
+               name="username"
+               class="text-field"
+               value="Admin" />
+        <input type="password"
+               name="password"
+               class="text-field"
+               placeholder="Mật Khẩu" />
+
+        <a href=""><input type="button" class="button" value="Đăng Nhâp" /></a>
+        <a href="" style="text-decoration: none;">Quay Lại</a>
+    </form>*@
+
+
+@using (Html.BeginForm("Login", "Home", new { Area = "Admin" }, FormMethod.Post, new { @class = "login" }))
+{
+    <h2>Admin</h2>
+    @Html.ValidationSummary(true)
+
+
+    <input type="text"
+           name="AdminName"
+           class="text-field"
+           value="Admin" />
+
+    @ViewData["Err1"]
+
+    <input type="password"
+           name="password"
+           class="text-field"
+           placeholder="Mật Khẩu" />
+
+    @ViewBag.Err2
+
+
+    @*<a href=""><input type="button" class="button" value="Đăng Nhâp" /></a>*@
+    <button class="button" type="submit">
+        Đăng Nhập
+    </button>
+    <div style="display:flex; justify-content: space-around">
+        <a href="" style="text-decoration: none;">Quay Lại</a>
+        <a href="" style="text-decoration: none;">Quên Mật Khẩu</a>
+    </div>
+
+
+}
+<p style="text-align: center; height: 10px; margin-bottom: 153px ; color:red">@ViewBag.ThongBao</p>
+
+

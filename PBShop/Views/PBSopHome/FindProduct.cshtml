@@ -1,0 +1,39 @@
+﻿﻿@model IEnumerable<PBShop.Models.Type>
+<div class="mobile-search-content">
+    <div class="container_Find_and_result" style="background-color: #ffff; height: 50px;width: 400px; position: absolute; top: 90px; left: 200px;     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+                    border: 1px solid #e4e4e4; box-sizing: border-box;">
+    </div>
+    <form action="#"
+          class="form-search"
+          name="mobile-seacrh"
+          method="get">
+        <a href="#" class="btn-close">
+            <span class="biolife-icon icon-close-menu"></span>
+        </a>
+
+        <input type="text"
+               name="s"
+               class="input-text"
+               value=""
+               placeholder="Nhập Tên Sản Phẩm..." />
+
+        <select name="category">
+            <option value="-1" selected>Danh Mục</option>
+            @foreach (var item in Model)
+            {
+                <option value="vegetables">@item.NameType</option>
+            }
+            @*@using (Html.BeginForm("Shop", "PBSopHome", FormMethod.Get, new { @class = "form-inline" }))
+                    {
+                        <div class="form-group">
+                            <label>Chủ đề:</label>@Html.DropDownList("TypeID", null, htmlAttributes: new { @class = "form-control" }) <label>Tên sách: </label>
+                            <input type="Text" class="form-control mx-sm-3" value="@ViewBag.Keyword" name="searchString" placeholder="Nhập tên sách cần tìm">
+                            <input type="submit" class="btn btn-danger" value="Tìm sách">
+                        </div>
+                        <hr />
+                    }
+                </select>*@
+            </select>
+            <button type="submit" class="btn-submit">Tìm</button>
+    </form>
+</div>

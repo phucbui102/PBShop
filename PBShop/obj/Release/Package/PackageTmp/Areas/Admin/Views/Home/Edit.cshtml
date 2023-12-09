@@ -1,0 +1,113 @@
+﻿@model PBShop.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutManage.cshtml";
+}
+
+
+<h2>Sửa sản phẩm</h2>
+
+
+
+
+<hr />
+<a href="@Url.Action("Index" , "Home")" class="btn btn-dark" style="margin-bottom:20px"><i class="fa-solid fa-arrow-left" style="color: #ffffff; padding-right: 5px"></i> Trở về danh sách</a>
+
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "row g-3" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="row g-3">
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.Rated)
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "form-label" })
+
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.Img, htmlAttributes: new { @class = "form-label" })
+
+        @Html.TextBoxFor(model => model.Img, null, new { type = "file", @class = "form-control" })
+        @Html.Hidden("oldimage", @Model.Img)
+        @Html.ValidationMessageFor(model => model.Img, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="col-md-2" style="">
+
+        <img src="~/Theme/assets/images/products/@Model.Img" height="150px;" />
+
+    </div>
+
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "form-label" })
+
+        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="col-md-6">
+        @Html.LabelFor(model => model.Promotional_Price, htmlAttributes: new { @class = "form-label" })
+
+        @Html.EditorFor(model => model.Promotional_Price, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Promotional_Price, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.Id_Type, "Id_Type", htmlAttributes: new { @class = "form-label" })
+
+        @Html.DropDownList("Id_Type", null, htmlAttributes: new { @class = "form-select" })
+        @Html.ValidationMessageFor(model => model.Id_Type, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.Id_Promotional, "Id_Promotional", htmlAttributes: new { @class = "form-label" })
+
+        @Html.DropDownList("Id_Promotional", null, htmlAttributes: new { @class = "form-select" })
+        @Html.ValidationMessageFor(model => model.Id_Promotional, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.DateAdded, htmlAttributes: new { @class = "form-label" })
+
+        @Html.TextBoxFor(model => model.DateAdded, "{0:yyyy-MM-dd}", new { type = "Date", @class = "form-control" })
+        @*@Html.EditorFor(model => model.DateAdded, new { htmlAttributes = new { @class = "form-control" } })*@
+        @Html.ValidationMessageFor(model => model.DateAdded, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Describe, htmlAttributes: new { @class = "form-label" })
+
+        @Html.TextAreaFor(model => model.Describe, new { @class = "form-control", @rows = "4" })
+        @Html.ValidationMessageFor(model => model.Describe, "", new { @class = "text-danger" })
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+

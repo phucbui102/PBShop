@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PBShopModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="char" MaxLength="20" />
+    <Property Name="Phone" Type="char" MaxLength="10" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'PBShop.dbo.DONDATHANG' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DONDATHANG">
+          <Property Name="MaKH" Type="bigint" />
+          <Property Name="NgayDH" Type="datetime" />
+          <Property Name="NgayGiaoHang" Type="datetime" />
+          <Property Name="HTGiaoHang" Type="bit" />
+          <Property Name="HTThanhToan" Type="bit" />
+          <Property Name="SoDH" Type="char" MaxLength="20" />
+        </EntityType>-->
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Promotional_Price" Type="float" Nullable="false" />
+    <Property Name="Img" Type="char" MaxLength="30" />
+    <Property Name="Describe" Type="nvarchar(max)" />
+    <Property Name="Id_Type" Type="int" Nullable="false" />
+    <Property Name="Id_Promotional" Type="int" Nullable="false" />
+    <Property Name="DateAdded" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Promotion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartDay" Type="smalldatetime" Nullable="false" />
+    <Property Name="EndDay" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShoppingCart">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="IdCustomer" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PBShop.dbo.ShoppingCartDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ShoppingCartDetails">
+    <Key>
+      <PropertyRef Name="Id_Product" />
+      <PropertyRef Name="Quantity" />
+    </Key>
+    <Property Name="Id_Product" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Icon" Type="char" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PBShop.dbo.Type_Details' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Type_Details">
+    <Key>
+      <PropertyRef Name="Id_Type" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id_Type" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Product_Promotion">
+    <End Role="Promotion" Type="Self.Promotion" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promotion">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Id_Promotional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Id_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShoppingCart_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShoppingCart">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShoppingCartDetails_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ShoppingCartDetails" Type="Self.ShoppingCartDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShoppingCartDetails">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShoppingCartDetails_ShoppingCart">
+    <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="1" />
+    <End Role="ShoppingCartDetails" Type="Self.ShoppingCartDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShoppingCart">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShoppingCartDetails">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Type_Details_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="1" />
+    <End Role="Type_Details" Type="Self.Type_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Type_Details">
+        <PropertyRef Name="Id_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PBShopModel1StoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShoppingCartDetails" EntityType="Self.ShoppingCartDetails" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ShoppingCartDetails].[Id_Product] AS [Id_Product], 
+    [ShoppingCartDetails].[Quantity] AS [Quantity]
+    FROM [dbo].[ShoppingCartDetails] AS [ShoppingCartDetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Type_Details" EntityType="Self.Type_Details" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Type_Details].[Id_Type] AS [Id_Type], 
+    [Type_Details].[Name] AS [Name]
+    FROM [dbo].[Type_Details] AS [Type_Details]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Product_Promotion" Association="Self.FK_Product_Promotion">
+      <End Role="Promotion" EntitySet="Promotion" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Type" Association="Self.FK_Product_Type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShoppingCart_Customer" Association="Self.FK_ShoppingCart_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShoppingCartDetails_Product" Association="Self.FK_ShoppingCartDetails_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ShoppingCartDetails" EntitySet="ShoppingCartDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShoppingCartDetails_ShoppingCart" Association="Self.FK_ShoppingCartDetails_ShoppingCart">
+      <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+      <End Role="ShoppingCartDetails" EntitySet="ShoppingCartDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Type_Details_Type" Association="Self.FK_Type_Details_Type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="Type_Details" EntitySet="Type_Details" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

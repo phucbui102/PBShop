@@ -1,0 +1,75 @@
+﻿@model IEnumerable<PBShop.Models.GetProduct>
+
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">
+                @*@Html.DisplayNameFor(model => model.ID)*@
+                ID
+            </th>
+            <th scope="col">
+                @*@Html.DisplayNameFor(model => model.Name)*@
+                Tên
+            </th>
+            <th scope="col">
+                @*@Html.DisplayNameFor(model => model.Price)*@
+                Giá
+            </th>
+            <th scope="col">
+                @*@Html.DisplayNameFor(model => model.Price)*@
+                Giá Khuyến Mãi
+            </th>
+            <th scope="col">
+                @*@Html.DisplayNameFor(model => model.Img)*@
+                Loại
+            </th>
+            <th scope="col">
+                @*@Html.DisplayNameFor(model => model.Img)*@
+                Ảnh
+            </th>
+            <th scope="col" style="width:250px">
+                Tháo Tác
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<th scope="row">@item.inde</th>*@
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Promotional_Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Img)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" })
+
+                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID }, new { @class = "btn btn-primary" })
+                    @*@Html.ActionLink("Xóa", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })*@
+                    <button class="btn btn-danger" onclick="ShowModal(@item.ID)" data-bs-toggle="modal" data-bs-target="#exampleModal">Xóa</button>
+                    @*<button onclick="openDetailsModal(@item.ID)">hehe</button>*@
+                    <!-- Button to trigger modal -->
+                    @*<button class="btn btn-info details-button" data-toggle="modal" data-target="#detailsModal" data-id="@item.ID">Show Details</button>*@
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
